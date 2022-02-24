@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "Card",
+        "repositoryURL": "https://github.com/CentrumGuy/Card.git",
+        "state": {
+          "branch": "main",
+          "revision": "08563060e6c81ef704bec366ab075abe3a0c232d",
+          "version": null
+        }
+      },
+      {
         "package": "Firebase",
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk",
         "state": {

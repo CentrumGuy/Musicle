@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Card
 
 class GameViewController: UIViewController {
 
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var waveView: SwiftSiriWaveformView!
+    
+    var cardAnimator: CardAnimator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +27,12 @@ class GameViewController: UIViewController {
             UIColor.systemPink.cgColor
         ]
         view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let cardController = storyboard.instantiateViewController(withIdentifier: "search_view") as! SearchViewController
+        self.presentCard(cardController, animated: true)
     }
-    @IBAction func changeAmplitude(_ sender: Any) {
-        waveView.amplitude = waveView.amplitude + 0.05
-    }
+    
     /*
     // MARK: - Navigation
 
@@ -38,4 +43,18 @@ class GameViewController: UIViewController {
     }
     */
 
+}
+
+
+extension GameViewController: CardParent {
+    
+    func cardAnimatorWillPresentCard(_ cardAnimator: CardAnimator, withAnimationParameters animationParameters: inout SpringAnimationContext) {
+        cardAnimator.pullTabEnabled = true
+        cardAnimator.cornerRadius = 16
+    }
+    
+    func cardAnimator(_ cardAnimator: CardAnimator, willApplyNewOffset newOffset: StickyOffset, withAnimationParameters animationParameters: inout SpringAnimationContext) {
+        cardAnimator.cornerRadius = 16
+    }
+    
 }

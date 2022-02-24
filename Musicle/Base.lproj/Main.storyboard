@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ONBOARDING PLACEHOLDERTEXT THATS GOING TO BE SUPER WELL WRITTEN AND VERY DESCRIPTIVE ABOUT HOW THIS APP WORKS " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ws-Hw-1qR">
-                                <rect key="frame" x="20" y="366" width="374" height="164"/>
+                                <rect key="frame" x="20" y="322" width="374" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="164" id="P50-Dl-Yhn"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder for maybe a leaderboard or previous day's games" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RR-H9-EiL">
-                                <rect key="frame" x="20" y="136" width="374" height="80"/>
+                                <rect key="frame" x="20" y="92" width="374" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="tzz-NK-Kgz"/>
                                 </constraints>
@@ -53,11 +53,6 @@
                                     <action selector="playGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W29-lh-Hli"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFF-6x-gHW">
-                                <rect key="frame" x="59" y="230" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
@@ -148,14 +143,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKM-yw-Qtd">
-                                <rect key="frame" x="138" y="706.5" width="140" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="change amplitude"/>
-                                <connections>
-                                    <action selector="changeAmplitude:" destination="qg3-zT-69C" eventType="touchUpInside" id="eZr-Ki-cGI"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NHm-iI-cxR"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -163,7 +150,6 @@
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="trailing" secondItem="NHm-iI-cxR" secondAttribute="trailing" id="56a-tR-bQX"/>
                             <constraint firstItem="NHm-iI-cxR" firstAttribute="trailing" secondItem="4pH-Xa-61F" secondAttribute="trailing" constant="20" id="GSd-lU-ho8"/>
                             <constraint firstItem="NHm-iI-cxR" firstAttribute="bottom" secondItem="4pH-Xa-61F" secondAttribute="bottom" id="GqY-n9-ZEg"/>
-                            <constraint firstItem="4pH-Xa-61F" firstAttribute="top" secondItem="YKM-yw-Qtd" secondAttribute="bottom" constant="64" id="MHY-2F-fqj"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="top" secondItem="Cmk-AG-LEA" secondAttribute="bottom" constant="44" id="QJQ-ae-1e9"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" id="VlQ-yJ-fuK"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="trailing" secondItem="NHm-iI-cxR" secondAttribute="trailing" id="c8m-c2-SDo"/>
@@ -182,13 +168,53 @@
             </objects>
             <point key="canvasLocation" x="1104" y="216"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="BDk-Z8-jY4">
+            <objects>
+                <viewController storyboardIdentifier="search_view" id="dOD-d2-QJT" customClass="SearchViewController" customModule="Musicle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="ggF-Fm-UZY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0Xq-3y-bzS">
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type song name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ue0-0v-nU8">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yds-2H-Udt">
+                                        <rect key="frame" x="0.0" y="34" width="374" height="744"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="J4M-03-aum"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="0Xq-3y-bzS" firstAttribute="leading" secondItem="J4M-03-aum" secondAttribute="leading" constant="20" id="Akg-1o-IjS"/>
+                            <constraint firstItem="0Xq-3y-bzS" firstAttribute="top" secondItem="J4M-03-aum" secondAttribute="top" constant="20" id="IcC-63-wHk"/>
+                            <constraint firstItem="J4M-03-aum" firstAttribute="trailing" secondItem="0Xq-3y-bzS" secondAttribute="trailing" constant="20" id="PnK-Q5-1ZZ"/>
+                            <constraint firstItem="J4M-03-aum" firstAttribute="bottom" secondItem="0Xq-3y-bzS" secondAttribute="bottom" constant="20" id="yh4-Y7-fFi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="songTextInputField" destination="Ue0-0v-nU8" id="4Kv-y1-CeK"/>
+                        <outlet property="songsTable" destination="yds-2H-Udt" id="h6h-az-wVQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NFW-rl-c3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102.8985507246377" y="880.58035714285711"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="W6h-no-OXq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fhp-TN-kRS" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Fhp-TN-kRS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J9P-AB-4Cv">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -207,6 +233,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
