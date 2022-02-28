@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B536F4727CA937200D37D55 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B536F4527CA937200D37D55 /* SongTableViewCell.swift */; };
+		9B536F4827CA937200D37D55 /* SongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B536F4627CA937200D37D55 /* SongTableViewCell.xib */; };
 		9B9E73C127C5A18900FF7E0A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9E73C027C5A18900FF7E0A /* FirebaseAnalytics */; };
 		9B9E73C327C5A1A200FF7E0A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9E73C227C5A1A200FF7E0A /* FirebaseFirestore */; };
 		9B9E73C727C6DACF00FF7E0A /* SwiftSiriWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E73C627C6DACF00FF7E0A /* SwiftSiriWaveformView.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B536F4527CA937200D37D55 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		9B536F4627CA937200D37D55 /* SongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongTableViewCell.xib; sourceTree = "<group>"; };
 		9B9E73C627C6DACF00FF7E0A /* SwiftSiriWaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSiriWaveformView.swift; sourceTree = "<group>"; };
 		9B9F9BD327C8470800CD4A6A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9BF5280C27C7D11100797BC0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				C7EEAD8627BEEC3F007A7E50 /* LaunchScreen.storyboard */,
 				C7EEAD8927BEEC3F007A7E50 /* Info.plist */,
 				C74D890227BEEDBE0078690E /* GoogleService-Info.plist */,
+				9B536F4527CA937200D37D55 /* SongTableViewCell.swift */,
+				9B536F4627CA937200D37D55 /* SongTableViewCell.xib */,
 			);
 			path = Musicle;
 			sourceTree = "<group>";
@@ -168,6 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B536F4827CA937200D37D55 /* SongTableViewCell.xib in Resources */,
 				C7EEAD8827BEEC3F007A7E50 /* LaunchScreen.storyboard in Resources */,
 				C74D890327BEEDBE0078690E /* GoogleService-Info.plist in Resources */,
 				C7EEAD8527BEEC3F007A7E50 /* Assets.xcassets in Resources */,
@@ -185,6 +192,7 @@
 				9B9F9BD427C8470800CD4A6A /* SearchViewController.swift in Sources */,
 				9BF5280D27C7D11100797BC0 /* GameViewController.swift in Sources */,
 				C7EEAD8027BEEC3E007A7E50 /* IntroViewController.swift in Sources */,
+				9B536F4727CA937200D37D55 /* SongTableViewCell.swift in Sources */,
 				9B9E73C727C6DACF00FF7E0A /* SwiftSiriWaveformView.swift in Sources */,
 				C7EEAD7C27BEEC3E007A7E50 /* AppDelegate.swift in Sources */,
 				C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */,

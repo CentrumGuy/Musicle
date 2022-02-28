@@ -8,10 +8,12 @@
 import UIKit
 import Card
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var cardAnimator: CardAnimator?
     
+    @IBOutlet weak var tableView: UITableView!
+    let songs = ["a", "bunch", "of", "strings", "that", "are", "song","names"]
     
     
     @IBOutlet weak var songsTable: UITableView!
@@ -21,19 +23,34 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let nib = UINib(nibName: "SongTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "SongTableViewCell")
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
+        // Messing with the card styling
+        cardAnimator?.pullTabEnabled = true
+        cardAnimator?.cornerRadius = 16
+        cardAnimator?.shouldHandleScrollViews = true
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Table View Functions
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return songs.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SongTableViewCell", for: indexPath) as! SongTableViewCell
+        cell.textLabel?.text = songs[indexPath.row]
+        
+        // Figuring out how to connect the UI part to the results given from firebase
+        cell.albumCover.backgroundColor = .red
+        cell.songTitleLabel.text = songs[indexPath.row]
+        cell.artistTitleAlbum.text = "Hello"
+        return cell
+    }
 
 }
 

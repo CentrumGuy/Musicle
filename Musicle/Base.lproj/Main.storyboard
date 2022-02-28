@@ -100,8 +100,25 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="217" width="414" height="278"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="278" id="Toa-hE-Por"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitude">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4pH-Xa-61F" userLabel="Replay Button Stack">
-                                <rect key="frame" x="20" y="801.5" width="374" height="60.5"/>
+                                <rect key="frame" x="20" y="511" width="374" height="60.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRd-mK-tvH">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
@@ -126,37 +143,20 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="217" width="414" height="278"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="278" id="Toa-hE-Por"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitude">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NHm-iI-cxR"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="trailing" secondItem="NHm-iI-cxR" secondAttribute="trailing" id="56a-tR-bQX"/>
-                            <constraint firstItem="NHm-iI-cxR" firstAttribute="trailing" secondItem="4pH-Xa-61F" secondAttribute="trailing" constant="20" id="GSd-lU-ho8"/>
-                            <constraint firstItem="NHm-iI-cxR" firstAttribute="bottom" secondItem="4pH-Xa-61F" secondAttribute="bottom" id="GqY-n9-ZEg"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="top" secondItem="Cmk-AG-LEA" secondAttribute="bottom" constant="44" id="QJQ-ae-1e9"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" id="VlQ-yJ-fuK"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="trailing" secondItem="NHm-iI-cxR" secondAttribute="trailing" id="c8m-c2-SDo"/>
-                            <constraint firstItem="4pH-Xa-61F" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" constant="20" id="l6v-Co-i6z"/>
+                            <constraint firstItem="4pH-Xa-61F" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" constant="20" id="kA6-AT-phO"/>
                             <constraint firstItem="Cmk-AG-LEA" firstAttribute="centerX" secondItem="J7p-wc-2be" secondAttribute="centerX" id="pqC-f3-XxZ"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" id="pzK-MI-aBf"/>
                             <constraint firstItem="Cmk-AG-LEA" firstAttribute="top" secondItem="NHm-iI-cxR" secondAttribute="top" constant="32" id="sCJ-IQ-5Tg"/>
+                            <constraint firstItem="NHm-iI-cxR" firstAttribute="trailing" secondItem="4pH-Xa-61F" secondAttribute="trailing" constant="20" id="swI-tV-07A"/>
+                            <constraint firstItem="4pH-Xa-61F" firstAttribute="top" secondItem="5Vq-Y2-i2z" secondAttribute="bottom" constant="16" id="xLC-Cf-9JX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -179,20 +179,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0Xq-3y-bzS">
                                 <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type song name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ue0-0v-nU8">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yds-2H-Udt">
-                                        <rect key="frame" x="0.0" y="34" width="374" height="744"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="778"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J4M-03-aum"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0Xq-3y-bzS" firstAttribute="leading" secondItem="J4M-03-aum" secondAttribute="leading" constant="20" id="Akg-1o-IjS"/>
                             <constraint firstItem="0Xq-3y-bzS" firstAttribute="top" secondItem="J4M-03-aum" secondAttribute="top" constant="20" id="IcC-63-wHk"/>
@@ -201,8 +196,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="songTextInputField" destination="Ue0-0v-nU8" id="4Kv-y1-CeK"/>
                         <outlet property="songsTable" destination="yds-2H-Udt" id="h6h-az-wVQ"/>
+                        <outlet property="tableView" destination="yds-2H-Udt" id="jX1-J1-tQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFW-rl-c3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -233,9 +228,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
