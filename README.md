@@ -1,1 +1,1 @@
-IOS Club Musical Project
+IOS Club Musicle Project
