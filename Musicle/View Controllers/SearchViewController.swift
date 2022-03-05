@@ -17,7 +17,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBOutlet weak var songsTable: UITableView!
-    @IBOutlet weak var songTextInputField: UITextField!
+    @IBOutlet weak var songInputTextField: UITextField!
+    
+    
     
     
     override func viewDidLoad() {
@@ -33,7 +35,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cardAnimator?.cornerRadius = 16
         cardAnimator?.shouldHandleScrollViews = true
         
-        
+        songInputTextField.isEnabled = true
     }
     
     // Table View Functions
@@ -50,6 +52,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.songTitleLabel.text = songs[indexPath.row]
         cell.artistTitleAlbum.text = "Hello"
         return cell
+    }
+    func cardAnimator(_ cardAnimator: CardAnimator, willApplyNewOffset newOffset: StickyOffset, withAnimationParameters animationParameters: inout SpringAnimationContext) {
+        print("New offset is being applied:")
+        print(newOffset)
+        if newOffset == .init(distanceFromTop: 0) {
+            print("Can edit the textfield")
+            songInputTextField.isEnabled = true
+        } else {
+            print("Cannot edit the textfield")
+            songInputTextField.isEnabled = false
+            self.view.endEditing(true)
+            songInputTextField.text = ""
+        }
+        
     }
 
 }

@@ -89,19 +89,20 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrY-iJ-TG7">
                                         <rect key="frame" x="0.0" y="0.0" width="118.5" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="64"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VV-Sb-MjY">
                                         <rect key="frame" x="0.0" y="76.5" width="118.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="217" width="414" height="278"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="278" id="Toa-hE-Por"/>
                                 </constraints>
@@ -176,26 +177,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0Xq-3y-bzS">
-                                <rect key="frame" x="20" y="64" width="374" height="778"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yds-2H-Udt">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="778"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </tableView>
-                                </subviews>
-                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Guess the Song" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-Gu-PFT">
+                                <rect key="frame" x="20" y="88" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="WVY-9T-mlm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yds-2H-Udt">
+                                <rect key="frame" x="20" y="138" width="374" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J4M-03-aum"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0Xq-3y-bzS" firstAttribute="leading" secondItem="J4M-03-aum" secondAttribute="leading" constant="20" id="Akg-1o-IjS"/>
-                            <constraint firstItem="0Xq-3y-bzS" firstAttribute="top" secondItem="J4M-03-aum" secondAttribute="top" constant="20" id="IcC-63-wHk"/>
-                            <constraint firstItem="J4M-03-aum" firstAttribute="trailing" secondItem="0Xq-3y-bzS" secondAttribute="trailing" constant="20" id="PnK-Q5-1ZZ"/>
-                            <constraint firstItem="J4M-03-aum" firstAttribute="bottom" secondItem="0Xq-3y-bzS" secondAttribute="bottom" constant="20" id="yh4-Y7-fFi"/>
+                            <constraint firstItem="yrj-Gu-PFT" firstAttribute="top" secondItem="J4M-03-aum" secondAttribute="top" constant="44" id="AuJ-dd-WlB"/>
+                            <constraint firstItem="yds-2H-Udt" firstAttribute="leading" secondItem="J4M-03-aum" secondAttribute="leading" constant="20" id="Cgx-NX-8W2"/>
+                            <constraint firstAttribute="bottom" secondItem="yds-2H-Udt" secondAttribute="bottom" id="L9W-2k-Srd"/>
+                            <constraint firstItem="yrj-Gu-PFT" firstAttribute="leading" secondItem="J4M-03-aum" secondAttribute="leading" constant="20" id="Ung-yH-Ehk"/>
+                            <constraint firstItem="yds-2H-Udt" firstAttribute="top" secondItem="yrj-Gu-PFT" secondAttribute="bottom" constant="16" id="jBk-Su-ymF"/>
+                            <constraint firstItem="J4M-03-aum" firstAttribute="trailing" secondItem="yrj-Gu-PFT" secondAttribute="trailing" constant="20" id="rZI-8A-FzB"/>
+                            <constraint firstItem="J4M-03-aum" firstAttribute="trailing" secondItem="yds-2H-Udt" secondAttribute="trailing" constant="20" id="weD-81-7Ep"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="songInputTextField" destination="yrj-Gu-PFT" id="iPJ-13-jvW"/>
                         <outlet property="songsTable" destination="yds-2H-Udt" id="h6h-az-wVQ"/>
                         <outlet property="tableView" destination="yds-2H-Udt" id="jX1-J1-tQi"/>
                     </connections>

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B4BCF8D27D3F2AD0019E58C /* Jake Chudnow - Moon Men (Instrumental).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B4BCF8C27D3F2AD0019E58C /* Jake Chudnow - Moon Men (Instrumental).mp3 */; };
 		9B536F4727CA937200D37D55 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B536F4527CA937200D37D55 /* SongTableViewCell.swift */; };
 		9B536F4827CA937200D37D55 /* SongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B536F4627CA937200D37D55 /* SongTableViewCell.xib */; };
+		9B9A40C227CEE02C008CEB1C /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9A40C127CEE02C008CEB1C /* AVFAudio.framework */; };
 		9B9E73C127C5A18900FF7E0A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9E73C027C5A18900FF7E0A /* FirebaseAnalytics */; };
 		9B9E73C327C5A1A200FF7E0A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9E73C227C5A1A200FF7E0A /* FirebaseFirestore */; };
 		9B9E73C727C6DACF00FF7E0A /* SwiftSiriWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E73C627C6DACF00FF7E0A /* SwiftSiriWaveformView.swift */; };
@@ -25,8 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B4BCF8C27D3F2AD0019E58C /* Jake Chudnow - Moon Men (Instrumental).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Jake Chudnow - Moon Men (Instrumental).mp3"; path = "../../../Desktop/Jake Chudnow - Moon Men (Instrumental).mp3"; sourceTree = "<group>"; };
 		9B536F4527CA937200D37D55 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		9B536F4627CA937200D37D55 /* SongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongTableViewCell.xib; sourceTree = "<group>"; };
+		9B9A40C127CEE02C008CEB1C /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
 		9B9E73C627C6DACF00FF7E0A /* SwiftSiriWaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSiriWaveformView.swift; sourceTree = "<group>"; };
 		9B9F9BD327C8470800CD4A6A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9BF5280C27C7D11100797BC0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B9E73C127C5A18900FF7E0A /* FirebaseAnalytics in Frameworks */,
+				9B9A40C227CEE02C008CEB1C /* AVFAudio.framework in Frameworks */,
 				9B9E73C327C5A1A200FF7E0A /* FirebaseFirestore in Frameworks */,
 				9B9F9BD227C8469200CD4A6A /* Card in Frameworks */,
 			);
@@ -58,6 +63,7 @@
 		9B9E73BF27C5A18900FF7E0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B9A40C127CEE02C008CEB1C /* AVFAudio.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,6 +109,7 @@
 				C74D890227BEEDBE0078690E /* GoogleService-Info.plist */,
 				9B536F4527CA937200D37D55 /* SongTableViewCell.swift */,
 				9B536F4627CA937200D37D55 /* SongTableViewCell.xib */,
+				9B4BCF8C27D3F2AD0019E58C /* Jake Chudnow - Moon Men (Instrumental).mp3 */,
 			);
 			path = Musicle;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 				C7EEAD8827BEEC3F007A7E50 /* LaunchScreen.storyboard in Resources */,
 				C74D890327BEEDBE0078690E /* GoogleService-Info.plist in Resources */,
 				C7EEAD8527BEEC3F007A7E50 /* Assets.xcassets in Resources */,
+				9B4BCF8D27D3F2AD0019E58C /* Jake Chudnow - Moon Men (Instrumental).mp3 in Resources */,
 				C7EEAD8327BEEC3E007A7E50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,7 +352,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SKLTWZD2Z5;
+				DEVELOPMENT_TEAM = YGMU4NNJHX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Musicle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -373,7 +381,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SKLTWZD2Z5;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Musicle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
