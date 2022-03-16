@@ -10,6 +10,8 @@
 		C74D890327BEEDBE0078690E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C74D890227BEEDBE0078690E /* GoogleService-Info.plist */; };
 		C74D890627BEEF5A0078690E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C74D890527BEEF5A0078690E /* FirebaseAnalytics */; };
 		C74D890827BEEF5A0078690E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C74D890727BEEF5A0078690E /* FirebaseFirestore */; };
+		C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */; };
+		C7EA997127E1727300A0A6D1 /* MUSSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA996F27E1727300A0A6D1 /* MUSSong.swift */; };
 		C7EEAD7C27BEEC3E007A7E50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */; };
 		C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */; };
 		C7EEAD8027BEEC3E007A7E50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7F27BEEC3E007A7E50 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		C74D890227BEEDBE0078690E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSpotifyAPI.swift; path = "Musicle/Spotify API/MUSSpotifyAPI.swift"; sourceTree = SOURCE_ROOT; };
+		C7EA996F27E1727300A0A6D1 /* MUSSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSong.swift; path = "Musicle/Data Types/MUSSong.swift"; sourceTree = SOURCE_ROOT; };
 		C7EEAD7827BEEC3E007A7E50 /* Musicle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7EA997227E1727600A0A6D1 /* Data Types */ = {
+			isa = PBXGroup;
+			children = (
+				C7EA996F27E1727300A0A6D1 /* MUSSong.swift */,
+			);
+			path = "Data Types";
+			sourceTree = "<group>";
+		};
+		C7EA997327E1729400A0A6D1 /* Spotify API */ = {
+			isa = PBXGroup;
+			children = (
+				C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */,
+			);
+			path = "Spotify API";
+			sourceTree = "<group>";
+		};
 		C7EEAD6F27BEEC3E007A7E50 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +82,8 @@
 		C7EEAD7A27BEEC3E007A7E50 /* Musicle */ = {
 			isa = PBXGroup;
 			children = (
+				C7EA997327E1729400A0A6D1 /* Spotify API */,
+				C7EA997227E1727600A0A6D1 /* Data Types */,
 				C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */,
 				C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */,
 				C7EEAD7F27BEEC3E007A7E50 /* ViewController.swift */,
@@ -155,7 +177,9 @@
 			files = (
 				C7EEAD8027BEEC3E007A7E50 /* ViewController.swift in Sources */,
 				C7EEAD7C27BEEC3E007A7E50 /* AppDelegate.swift in Sources */,
+				C7EA997127E1727300A0A6D1 /* MUSSong.swift in Sources */,
 				C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */,
+				C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
