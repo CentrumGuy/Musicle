@@ -23,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9BF2223F27E2AA8D00572F1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../Desktop/Musicle copy/Musicle/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		C74D890227BEEDBE0078690E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSpotifyAPI.swift; path = "Musicle/Spotify API/MUSSpotifyAPI.swift"; sourceTree = SOURCE_ROOT; };
 		C7EA996F27E1727300A0A6D1 /* MUSSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSong.swift; path = "Musicle/Data Types/MUSSong.swift"; sourceTree = SOURCE_ROOT; };
