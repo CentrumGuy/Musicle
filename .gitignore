@@ -63,6 +63,10 @@ fastlane/test_output
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
+
 ## Build generated
 
 ## Various settings
@@ -76,5 +80,6 @@ fastlane/test_output
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/swift,xcode
