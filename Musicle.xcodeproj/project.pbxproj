@@ -8,34 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		9BF2224027E2AA8D00572F1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2223E27E2AA8D00572F1A /* Main.storyboard */; };
+		C70B135127E42D0D00ED23EB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B134B27E42D0C00ED23EB /* SearchViewController.swift */; };
+		C70B135227E42D0D00ED23EB /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B134C27E42D0C00ED23EB /* SongTableViewCell.swift */; };
+		C70B135327E42D0D00ED23EB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B134D27E42D0D00ED23EB /* GameViewController.swift */; };
+		C70B135427E42D0D00ED23EB /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B134E27E42D0D00ED23EB /* IntroViewController.swift */; };
+		C70B135527E42D0D00ED23EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70B134F27E42D0D00ED23EB /* Main.storyboard */; };
+		C70B135627E42D0D00ED23EB /* SongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70B135027E42D0D00ED23EB /* SongTableViewCell.xib */; };
+		C70B135927E42D7800ED23EB /* SwiftSiriWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B135827E42D7800ED23EB /* SwiftSiriWaveformView.swift */; };
+		C70B135C27E42DB100ED23EB /* Card in Frameworks */ = {isa = PBXBuildFile; productRef = C70B135B27E42DB100ED23EB /* Card */; };
+		C70B135E27E42DE300ED23EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70B135D27E42DE300ED23EB /* AVFoundation.framework */; };
 		C74D890327BEEDBE0078690E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C74D890227BEEDBE0078690E /* GoogleService-Info.plist */; };
+		C76FF1B627E42F74001AD504 /* Midnight (Kygo Remix).m4a in Resources */ = {isa = PBXBuildFile; fileRef = C76FF1B527E42F74001AD504 /* Midnight (Kygo Remix).m4a */; };
 		C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */; };
 		C7EEAD7C27BEEC3E007A7E50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */; };
 		C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */; };
-		C7EEAD8027BEEC3E007A7E50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7F27BEEC3E007A7E50 /* ViewController.swift */; };
 		C7EEAD8527BEEC3F007A7E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7EEAD8427BEEC3F007A7E50 /* Assets.xcassets */; };
 		C7EEAD8827BEEC3F007A7E50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EEAD8627BEEC3F007A7E50 /* LaunchScreen.storyboard */; };
 		F25482A827DDA68F00988BF2 /* JSTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25482A727DDA68F00988BF2 /* JSTools.swift */; };
 		F28DE4B327CEE5D800B15225 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F28DE4B227CEE5D800B15225 /* FirebaseFirestore */; };
 		F28DE4B527CEE5DF00B15225 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F28DE4B427CEE5DF00B15225 /* FirebaseAnalytics */; };
 		F29EF8A927E3EA08008BD3D0 /* MUSSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA996F27E1727300A0A6D1 /* MUSSong.swift */; };
-		F29EF8AB27E3EA49008BD3D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29EF8AA27E3EA49008BD3D0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9BF2223F27E2AA8D00572F1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../Desktop/Musicle copy/Musicle/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		C70B134B27E42D0C00ED23EB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C70B134C27E42D0C00ED23EB /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		C70B134D27E42D0D00ED23EB /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		C70B134E27E42D0D00ED23EB /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		C70B134F27E42D0D00ED23EB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C70B135027E42D0D00ED23EB /* SongTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SongTableViewCell.xib; sourceTree = "<group>"; };
+		C70B135827E42D7800ED23EB /* SwiftSiriWaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSiriWaveformView.swift; sourceTree = "<group>"; };
+		C70B135D27E42DE300ED23EB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C74D890227BEEDBE0078690E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C76FF1B527E42F74001AD504 /* Midnight (Kygo Remix).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Midnight (Kygo Remix).m4a"; sourceTree = "<group>"; };
 		C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSpotifyAPI.swift; path = "Musicle/Spotify API/MUSSpotifyAPI.swift"; sourceTree = SOURCE_ROOT; };
 		C7EA996F27E1727300A0A6D1 /* MUSSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSong.swift; path = "Musicle/Data Types/MUSSong.swift"; sourceTree = SOURCE_ROOT; };
 		C7EEAD7827BEEC3E007A7E50 /* Musicle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C7EEAD7F27BEEC3E007A7E50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7EEAD8427BEEC3F007A7E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7EEAD8727BEEC3F007A7E50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7EEAD8927BEEC3F007A7E50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F25482A727DDA68F00988BF2 /* JSTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSTools.swift; sourceTree = "<group>"; };
-		F29EF8AA27E3EA49008BD3D0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,14 +57,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70B135E27E42DE300ED23EB /* AVFoundation.framework in Frameworks */,
 				F28DE4B527CEE5DF00B15225 /* FirebaseAnalytics in Frameworks */,
 				F28DE4B327CEE5D800B15225 /* FirebaseFirestore in Frameworks */,
+				C70B135C27E42DB100ED23EB /* Card in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C70B134A27E42CF600ED23EB /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				C70B134F27E42D0D00ED23EB /* Main.storyboard */,
+				C70B135027E42D0D00ED23EB /* SongTableViewCell.xib */,
+				C70B135727E42D6100ED23EB /* UI Elements */,
+				C70B134D27E42D0D00ED23EB /* GameViewController.swift */,
+				C70B134E27E42D0D00ED23EB /* IntroViewController.swift */,
+				C70B134B27E42D0C00ED23EB /* SearchViewController.swift */,
+				C70B134C27E42D0C00ED23EB /* SongTableViewCell.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		C70B135727E42D6100ED23EB /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				C70B135827E42D7800ED23EB /* SwiftSiriWaveformView.swift */,
+			);
+			path = "UI Elements";
+			sourceTree = "<group>";
+		};
 		C7EA997227E1727600A0A6D1 /* Data Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,18 +126,17 @@
 		C7EEAD7A27BEEC3E007A7E50 /* Musicle */ = {
 			isa = PBXGroup;
 			children = (
+				C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */,
+				C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */,
 				F29EF8A827E3E9F0008BD3D0 /* Utils */,
 				C7EA997327E1729400A0A6D1 /* Spotify API */,
 				C7EA997227E1727600A0A6D1 /* Data Types */,
-				C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */,
-				C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */,
-				C7EEAD7F27BEEC3E007A7E50 /* ViewController.swift */,
-				9BF2223E27E2AA8D00572F1A /* Main.storyboard */,
+				C70B134A27E42CF600ED23EB /* User Interface */,
 				C7EEAD8427BEEC3F007A7E50 /* Assets.xcassets */,
-				F29EF8AA27E3EA49008BD3D0 /* Main.storyboard */,
 				C7EEAD8627BEEC3F007A7E50 /* LaunchScreen.storyboard */,
 				C7EEAD8927BEEC3F007A7E50 /* Info.plist */,
 				C74D890227BEEDBE0078690E /* GoogleService-Info.plist */,
+				C76FF1B527E42F74001AD504 /* Midnight (Kygo Remix).m4a */,
 			);
 			path = Musicle;
 			sourceTree = "<group>";
@@ -107,6 +144,7 @@
 		F28DE4B127CEE5D800B15225 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C70B135D27E42DE300ED23EB /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,6 +184,7 @@
 			packageProductDependencies = (
 				F28DE4B227CEE5D800B15225 /* FirebaseFirestore */,
 				F28DE4B427CEE5DF00B15225 /* FirebaseAnalytics */,
+				C70B135B27E42DB100ED23EB /* Card */,
 			);
 			productName = Musicle;
 			productReference = C7EEAD7827BEEC3E007A7E50 /* Musicle.app */;
@@ -177,6 +216,7 @@
 			mainGroup = C7EEAD6F27BEEC3E007A7E50;
 			packageReferences = (
 				C74D890427BEEF5A0078690E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C70B135A27E42DB100ED23EB /* XCRemoteSwiftPackageReference "Card" */,
 			);
 			productRefGroup = C7EEAD7927BEEC3E007A7E50 /* Products */;
 			projectDirPath = "";
@@ -192,8 +232,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70B135627E42D0D00ED23EB /* SongTableViewCell.xib in Resources */,
 				C7EEAD8827BEEC3F007A7E50 /* LaunchScreen.storyboard in Resources */,
-				F29EF8AB27E3EA49008BD3D0 /* Main.storyboard in Resources */,
+				C70B135527E42D0D00ED23EB /* Main.storyboard in Resources */,
+				C76FF1B627E42F74001AD504 /* Midnight (Kygo Remix).m4a in Resources */,
 				9BF2224027E2AA8D00572F1A /* Main.storyboard in Resources */,
 				C74D890327BEEDBE0078690E /* GoogleService-Info.plist in Resources */,
 				C7EEAD8527BEEC3F007A7E50 /* Assets.xcassets in Resources */,
@@ -207,9 +249,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7EEAD8027BEEC3E007A7E50 /* ViewController.swift in Sources */,
+				C70B135427E42D0D00ED23EB /* IntroViewController.swift in Sources */,
+				C70B135127E42D0D00ED23EB /* SearchViewController.swift in Sources */,
+				C70B135927E42D7800ED23EB /* SwiftSiriWaveformView.swift in Sources */,
 				C7EEAD7C27BEEC3E007A7E50 /* AppDelegate.swift in Sources */,
 				F29EF8A927E3EA08008BD3D0 /* MUSSong.swift in Sources */,
+				C70B135227E42D0D00ED23EB /* SongTableViewCell.swift in Sources */,
+				C70B135327E42D0D00ED23EB /* GameViewController.swift in Sources */,
 				F25482A827DDA68F00988BF2 /* JSTools.swift in Sources */,
 				C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */,
 				C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */,
@@ -222,7 +268,6 @@
 		9BF2223E27E2AA8D00572F1A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9BF2223F27E2AA8D00572F1A /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -436,6 +481,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C70B135A27E42DB100ED23EB /* XCRemoteSwiftPackageReference "Card" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CentrumGuy/Card.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		C74D890427BEEF5A0078690E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -447,6 +500,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C70B135B27E42DB100ED23EB /* Card */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C70B135A27E42DB100ED23EB /* XCRemoteSwiftPackageReference "Card" */;
+			productName = Card;
+		};
 		F28DE4B227CEE5D800B15225 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C74D890427BEEF5A0078690E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
