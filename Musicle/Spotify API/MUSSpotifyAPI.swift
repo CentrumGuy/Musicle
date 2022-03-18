@@ -88,6 +88,53 @@ class MUSSpotifyAPI {
         
         task.resume()
     }
+    
+    func getSong(songID: String, completion: @escaping (MUSSong?) -> ()) {
+        guard let token = token else {
+            completion(nil)
+            return
+        }
+
+        let searchURL = "https://api.spotify.com/v1/tracks/\(songID)?market=US"
+        
+        guard let url = URL(string: searchURL) else {
+            completion(nil)
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                  let readableJSON = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
+                      completion(nil)
+                      return
+                  }
+            
+            let item = JSONSnapshot(readableJSON)
+            let id = item.child("id").val as? String
+            let title = item.child("name").val as? String
+            let artist = item.child("artists").children.first?.child("name").val as? String
+            let album = item.child("album").child("name").val as? String
+            let previewURL = item.child("preview_url").val as? String
+            let song = MUSSong(
+                id: id ?? "0",
+                title: title ?? "unknown",
+                artist: artist ?? "unknown",
+                album: album ?? "unknown",
+                previewURL: URL(string: previewURL ?? "unknown")!
+            )
+            
+            completion(song)
+        }
+        
+        task.resume()
+    }
 
     
 }

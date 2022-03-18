@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "card",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CentrumGuy/Card.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f86ffc0710a9ace77642f21b9f58c35614f7fd74"
+      }
+    },
+    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",
