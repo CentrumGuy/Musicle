@@ -13,13 +13,30 @@ class GameViewController: UIViewController {
 
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var waveView: SwiftSiriWaveformView!
-     // TEMP AUDIO PLAYER that DOESNT WORK bc I removed the file in the final version
-    let audioPlayer = try! AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "Midnight (Kygo Remix)", withExtension: "m4a")!)
+    @IBOutlet weak var playPauseButton: UIButton!
     var displayLink: CADisplayLink!
     var cardAnimator: CardAnimator?
+    var isPaused = false
+//    let audioPlayer = try! AVAudioPlayer(contentsOf: URL(string: "https://p.scdn.co/mp3-preview/b51d0ed637d2e5cb3eb27565cce9a06f95599077")!)
+    let audioPlayer = AVAudioPlayer()
+
+    
+     // TEMP AUDIO PLAYER that DOESNT WORK bc I removed the file in the final version
+    
+    // Frank Ocean Lost - 3GZD6HmiNUhxXYf8Gch723
     
     
-    
+    func generateTodaysSong() {
+        print("Attempting to create an audioplayer with a song")
+        MUSSpotifyAPI.shared.getSong(songID: MUSGame.todaysSongID) { song in
+            guard let song = song else { return }
+
+            print("Created the audioplayer")
+            print(song.previewURL.absoluteURL)
+            self.audioPlayer.isMeteringEnabled = true
+            self.audioPlayer.play()
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -45,31 +62,53 @@ class GameViewController: UIViewController {
         displayLink = CADisplayLink(target: self, selector: #selector(updateWave))
         displayLink.add(to: .main, forMode: .default)
         
-        audioPlayer.isMeteringEnabled = true
-        audioPlayer.play()
+        
+        
+        // Configuring button
+        playPauseButton.setTitle("Play", for: .selected)
+        playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .selected)
+        
+        
+        
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    @objc func updateWave() {
+//        guard let audioPlayer = self.audioPlayer else { return }
+//
+////        let smoothingValue = 0.6
+//        let beforeAverage = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
+//
+//        audioPlayer.updateMeters()
+//
+//        let average = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
+//
+//        let power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
+////        print(power)
+//        waveView.amplitude = CGFloat(power)
+//    }
     @objc func updateWave() {
-//        let smoothingValue = 0.6
-        let beforeAverage = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
-        
-        audioPlayer.updateMeters()
-        
-        let average = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
-
-        let power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
-//        print(power)
-        waveView.amplitude = CGFloat(power)
+    //        let smoothingValue = 0.6
+            let beforeAverage = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
+            
+            audioPlayer.updateMeters()
+            
+            let average = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
+            
+            let power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
+            print(power)
+            waveView.amplitude = CGFloat(power)
     }
+    @IBAction func playPauseButtonWasPressed(_ sender: UIButton) {
+        playPauseButton.isSelected.toggle()
+    }
+    @IBAction func rewindButtonWasPressed(_ sender: Any) {
+        if playPauseButton.isSelected {
+            audioPlayer.pause()
+        } else {
+            audioPlayer.play()
+        }
+    }
+    
 }
 
 

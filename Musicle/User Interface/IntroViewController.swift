@@ -10,6 +10,10 @@ import UIKit
 class IntroViewController: UIViewController {
 
     @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var playerTotalPoints: UILabel!
+    @IBOutlet weak var onboardingTextLabel: UILabel!
+    @IBOutlet weak var pointsStack: UIStackView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +27,12 @@ class IntroViewController: UIViewController {
             UIColor.systemPurple.cgColor
         ]
         view.layer.insertSublayer(gradientLayer, at: 0)
-        // Styling the Start Game Button
+        
+        // Styling the points stack
+        pointsStack.backgroundColor = .white.withAlphaComponent(CGFloat(0.30))
+        pointsStack.layer.cornerRadius = 15
+        
+        
     }
 
     @IBAction func playGameButtonPressed(_ sender: Any) {
