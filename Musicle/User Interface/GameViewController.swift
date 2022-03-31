@@ -26,18 +26,19 @@ class GameViewController: UIViewController {
     // Frank Ocean Lost - 3GZD6HmiNUhxXYf8Gch723
     
     
-    func generateTodaysSong() {
-        print("Attempting to create an audioplayer with a song")
-        MUSSpotifyAPI.shared.getSong(songID: MUSGame.todaysSongID) { song in
-            guard let song = song else { return }
-
-            print("Created the audioplayer")
-            print(song.previewURL.absoluteURL)
-            self.audioPlayer.isMeteringEnabled = true
-            self.audioPlayer.play()
+    func downloadFileFromUILIfNeeded(urlString: String, completion: @escaping (URL?) -> ()) {
+        guard let inputURL = URL(string: urlString) else {
+            completion(nil)
+            return
         }
+        
+        let downloadTask = URLSession.shared.downloadTask(with:inputURL, completionHandler: { (newURL, response, error) in
+            completion(newURL)
+            return
+        })
+        
+        downloadTask.resume()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,16 +88,21 @@ class GameViewController: UIViewController {
 //        waveView.amplitude = CGFloat(power)
 //    }
     @objc func updateWave() {
-    //        let smoothingValue = 0.6
+        let power:Float
+        
+        if playPauseButton.isSelected {
+            power = 0.0
+        } else {
             let beforeAverage = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
             
             audioPlayer.updateMeters()
             
             let average = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
             
-            let power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
-            print(power)
-            waveView.amplitude = CGFloat(power)
+            power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
+        }
+        waveView.amplitude = CGFloat(power)
+        
     }
     @IBAction func playPauseButtonWasPressed(_ sender: UIButton) {
         playPauseButton.isSelected.toggle()
