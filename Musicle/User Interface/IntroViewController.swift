@@ -41,4 +41,3 @@ class IntroViewController: UIViewController {
         self.navigationController?.pushViewController(secondController, animated: true)
     }
 }
-

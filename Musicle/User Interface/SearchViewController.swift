@@ -91,7 +91,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Function after a user has selected a specific cell in the tableView. Will match with
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        MUSGame.userSelectedSong = songs[indexPath.row]
+        let selectedSong = songs[indexPath.row]
+        if selectedSong.id == MUSGame.dailySong?.id {
+            print("WINNER WINNER CHICKEN DINNER")
+        } else {
+            print("You suck")
+        }
     }
 }
 

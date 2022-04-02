@@ -18,15 +18,14 @@ class GameViewController: UIViewController {
     var cardAnimator: CardAnimator?
     var isPaused = false
 //    let audioPlayer = try! AVAudioPlayer(contentsOf: URL(string: "https://p.scdn.co/mp3-preview/b51d0ed637d2e5cb3eb27565cce9a06f95599077")!)
-    let audioPlayer = AVAudioPlayer()
-
+    var audioPlayer: AVAudioPlayer? = nil
     
      // TEMP AUDIO PLAYER that DOESNT WORK bc I removed the file in the final version
     
     // Frank Ocean Lost - 3GZD6HmiNUhxXYf8Gch723
     
     
-    func downloadFileFromUILIfNeeded(urlString: String, completion: @escaping (URL?) -> ()) {
+    private func downloadFileFromURLIfNeeded(urlString: String, completion: @escaping (URL?) -> ()) {
         guard let inputURL = URL(string: urlString) else {
             completion(nil)
             return
@@ -43,6 +42,21 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("view did load")
+        
+        MUSSpotifyAPI.shared.getSong(songID: "73uuR2zG9qcTuYX5A4JUyR") { song in
+            MUSGame.dailySong = song
+            guard let songURL = song?.previewURL else { return }
+            
+            self.downloadFileFromURLIfNeeded(urlString: songURL.absoluteString) { fileURL in
+                guard let fileURL = fileURL else { return }
+                print(fileURL, " ABSOLUTE URL")
+                
+                self.audioPlayer = try? AVAudioPlayer(contentsOf: fileURL)
+                self.audioPlayer?.play()
+                print(self.audioPlayer, ": IS PLAYING A SONG")
+                self.audioPlayer?.isMeteringEnabled = true
+            }
+        }
         
         // Do any additional setup after loading the view.
         // Creating gradient background
@@ -63,56 +77,35 @@ class GameViewController: UIViewController {
         displayLink = CADisplayLink(target: self, selector: #selector(updateWave))
         displayLink.add(to: .main, forMode: .default)
         
-        
-        
         // Configuring button
         playPauseButton.setTitle("Play", for: .selected)
         playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .selected)
-        
-        
-        
     }
-    
-//    @objc func updateWave() {
-//        guard let audioPlayer = self.audioPlayer else { return }
-//
-////        let smoothingValue = 0.6
-//        let beforeAverage = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
-//
-//        audioPlayer.updateMeters()
-//
-//        let average = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
-//
-//        let power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
-////        print(power)
-//        waveView.amplitude = CGFloat(power)
-//    }
+
     @objc func updateWave() {
-        let power:Float
+        guard let audioPlayer = audioPlayer else { return }
+            
+        let beforeAverage = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
+        audioPlayer.updateMeters()
+        let average = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
+        let power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
         
-        if playPauseButton.isSelected {
-            power = 0.0
-        } else {
-            let beforeAverage = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
-            
-            audioPlayer.updateMeters()
-            
-            let average = (audioPlayer.averagePower(forChannel: 0) + audioPlayer.averagePower(forChannel: 1)) / 2
-            
-            power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
-        }
         waveView.amplitude = CGFloat(power)
         
     }
+    
     @IBAction func playPauseButtonWasPressed(_ sender: UIButton) {
         playPauseButton.isSelected.toggle()
-    }
-    @IBAction func rewindButtonWasPressed(_ sender: Any) {
+        guard let audioPlayer = audioPlayer else { return }
         if playPauseButton.isSelected {
             audioPlayer.pause()
         } else {
             audioPlayer.play()
         }
+    }
+    
+    @IBAction func rewindButtonWasPressed(_ sender: Any) {
+        
     }
     
 }
