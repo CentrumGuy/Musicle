@@ -20,6 +20,13 @@ class GameOverViewController: UIViewController {
             UIColor.systemPurple.cgColor
         ]
         view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        
+        //
+        let defaults = UserDefaults()
+        var newPoints = defaults.integer(forKey: "points")
+        newPoints = newPoints + 1
+        defaults.set(newPoints, forKey: "points")
     }
     
 

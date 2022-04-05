@@ -58,7 +58,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ws-Hw-1qR">
                                         <rect key="frame" x="20" y="20" width="334" height="90"/>
                                         <string key="text">Welcome to Musicle! It's like Wordle... but with music! The objective of the game is to guess the song played with only a short audio clip. Requesting more time is allowed with point deduction.</string>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -220,7 +220,7 @@
         <!--Game Over View Controller-->
         <scene sceneID="apK-qp-L0z">
             <objects>
-                <viewController id="sqr-Uc-HCA" customClass="GameOverViewController" customModule="Musicle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="game_over_controller" id="sqr-Uc-HCA" customClass="GameOverViewController" customModule="Musicle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Ki-uj-aew">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

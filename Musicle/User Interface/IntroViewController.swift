@@ -31,7 +31,10 @@ class IntroViewController: UIViewController {
         // Styling the points stack
         pointsStack.backgroundColor = .white.withAlphaComponent(CGFloat(0.30))
         pointsStack.layer.cornerRadius = 15
-        
+        //Placing the users current points on display
+        guard let points = MUSGame.userPoints else { return }
+        playerTotalPoints.text = String(points)
+        onboardingTextLabel.font = .rounded(ofSize: onboardingTextLabel.font.pointSize, weight: .regular)
         
     }
 
@@ -39,5 +42,19 @@ class IntroViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondController = storyboard.instantiateViewController(withIdentifier: "game_controller")
         self.navigationController?.pushViewController(secondController, animated: true)
+    }
+}
+
+extension UIFont {
+    class func rounded(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
+        let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
+        let font: UIFont
+        
+        if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
+            font = UIFont(descriptor: descriptor, size: size)
+        } else {
+            font = systemFont
+        }
+        return font
     }
 }

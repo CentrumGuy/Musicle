@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import AVFAudio
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         MUSSpotifyAPI.shared.generateToken(clientID: "bc1a9db6ac2246ffb4d6ba5b8e52014c", clientSecret: "9485c02a32224359b3e4f047b33c27e3") {}
+        
+        let defaults = UserDefaults()
+        
+        MUSGame.userPoints = defaults.integer(forKey: "points")
+        
+        
         return true
     }
 
