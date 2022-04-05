@@ -23,11 +23,11 @@ class MUSArtwork {
         self.highQualityUrl = highQualityUrl
     }
     
-    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    private func getArtwork(callback: @escaping (UIImage?) -> ()) {
+    func getArtwork(callback: @escaping (UIImage?) -> ()) {
         if let highQuality = self.highQuality {
             callback(highQuality)
             return
