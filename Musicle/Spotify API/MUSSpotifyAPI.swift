@@ -74,12 +74,21 @@ class MUSSpotifyAPI {
                 let artist = item.child("artists").children.first?.child("name").val as? String
                 let album = item.child("album").child("name").val as? String
                 let previewURL = item.child("preview_url").val as? String
+                let highQualityUrl = item.child("album").child("images").children[0].child("url").val as? String
+                let mediumQualityUrl = item.child("album").child("images").children[1].child("url").val as? String
+                let lowQualityUrl = item.child("album").child("images").children[2].child("url").val as? String
+                let albumArt = MUSArtwork(
+                    lowQualityUrl: URL(string: lowQualityUrl ?? "unknown")!,
+                    mediumQualityUrl: URL(string: mediumQualityUrl ?? "unknown")!,
+                    highQualityUrl: URL(string: highQualityUrl ?? "unknown")!
+                )
                 return MUSSong(
                     id: id ?? "0",
                     title: title ?? "unknown",
                     artist: artist ?? "unknown",
                     album: album ?? "unknown",
-                    previewURL: URL(string: previewURL ?? "unknown")!
+                    previewURL: URL(string: previewURL ?? "unknown")!,
+                    albumArt: albumArt
                 )
             }
             
@@ -122,12 +131,21 @@ class MUSSpotifyAPI {
             let artist = item.child("artists").children.first?.child("name").val as? String
             let album = item.child("album").child("name").val as? String
             let previewURL = item.child("preview_url").val as? String
+            let highQualityUrl = item.child("album").child("images").children[0].child("url").val as? String
+            let mediumQualityUrl = item.child("album").child("images").children[1].child("url").val as? String
+            let lowQualityUrl = item.child("album").child("images").children[2].child("url").val as? String
+            let albumArt = MUSArtwork(
+                lowQualityUrl: URL(string: lowQualityUrl ?? "unknown")!,
+                mediumQualityUrl: URL(string: mediumQualityUrl ?? "unknown")!,
+                highQualityUrl: URL(string: highQualityUrl ?? "unknown")!
+            )
             let song = MUSSong(
                 id: id ?? "0",
                 title: title ?? "unknown",
                 artist: artist ?? "unknown",
                 album: album ?? "unknown",
-                previewURL: URL(string: previewURL ?? "unknown")!
+                previewURL: URL(string: previewURL ?? "unknown")!,
+                albumArt: albumArt
             )
             
             completion(song)
