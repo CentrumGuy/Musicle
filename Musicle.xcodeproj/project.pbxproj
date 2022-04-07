@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20CF3ADC27F662C80027FC72 /* MUSFireBaseID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF3ADB27F662C80027FC72 /* MUSFireBaseID.swift */; };
 		9B69DC9A27F630E400B6DE36 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69DC9927F630E400B6DE36 /* GameOverViewController.swift */; };
 		9BA49E7827F3DCC400E55FA7 /* MUSGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA49E7727F3DCC400E55FA7 /* MUSGame.swift */; };
 		9BF2224027E2AA8D00572F1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2223E27E2AA8D00572F1A /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20CF3ADB27F662C80027FC72 /* MUSFireBaseID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSFireBaseID.swift; sourceTree = "<group>"; };
 		9B69DC9927F630E400B6DE36 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		9BA49E7727F3DCC400E55FA7 /* MUSGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSGame.swift; sourceTree = "<group>"; };
 		C70B134B27E42D0C00ED23EB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */,
+				20CF3ADB27F662C80027FC72 /* MUSFireBaseID.swift */,
 			);
 			path = "Spotify API";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				C70B135227E42D0D00ED23EB /* SongTableViewCell.swift in Sources */,
 				9BA49E7827F3DCC400E55FA7 /* MUSGame.swift in Sources */,
 				C70B135327E42D0D00ED23EB /* GameViewController.swift in Sources */,
+				20CF3ADC27F662C80027FC72 /* MUSFireBaseID.swift in Sources */,
 				9B69DC9A27F630E400B6DE36 /* GameOverViewController.swift in Sources */,
 				F25482A827DDA68F00988BF2 /* JSTools.swift in Sources */,
 				C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */,
@@ -414,7 +418,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YGMU4NNJHX;
+				DEVELOPMENT_TEAM = 85LSBGYCRW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Musicle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -443,7 +447,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YGMU4NNJHX;
+				DEVELOPMENT_TEAM = 85LSBGYCRW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Musicle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

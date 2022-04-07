@@ -9,6 +9,8 @@
 build/
 DerivedData/
 
+Musicle.xcodeproj/project.xcworkspace/
+
 ## Various settings
 *.pbxuser
 !default.pbxuser

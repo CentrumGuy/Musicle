@@ -52,18 +52,17 @@ class SearchViewController: UIViewController {
             self.view.endEditing(true)
             songInputTextField.text = ""
         }
-        
     }
     
     func search() {
         let newSongSearchString = songInputTextField.text
         
         MUSSpotifyAPI.shared.searchCatalog(searchQuery: newSongSearchString!, completion: { queriedSongs in
-            guard let queriedSongs = queriedSongs else { return }
-            self.songs = queriedSongs
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+//            guard let queriedSongs = queriedSongs else { return }
+//            self.songs = queriedSongs
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
         })
         
     }

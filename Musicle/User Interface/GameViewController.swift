@@ -44,6 +44,10 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         print("view did load")
         
+        MUSFireBaseID.shared.getDailySong { songID in
+            print(songID)
+        }
+        
         // Do any additional setup after loading the view.
         // Creating gradient background
         let gradientLayer = CAGradientLayer()

@@ -18,6 +18,9 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+//        print("Today's song is ", MUSFireBaseID.shared().getDailySong())
+//        print("Call to API ", MUSSpotifyAPI.shared().)
+        
         
         // Adding the background Gradient
         let gradientLayer = CAGradientLayer()
