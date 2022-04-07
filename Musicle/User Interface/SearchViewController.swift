@@ -84,7 +84,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         // Configuring cell
         cell.songTitleLabel.text = currentSong.title
         print(currentSong.id)
-        cell.albumCover.backgroundColor = .red // Can there be a field for the song's album art cover
+        currentSong.albumArt.getArtwork { image in
+            cell.albumCover.image = image // Can there be a field for the song's album art cover
+        }
+        
         cell.artistTitleAlbum.text = currentSong.artist + " / " + currentSong.album
         return cell
     }
