@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203FDE9927FF95480093C36F /* MUSFireBaseID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203FDE9827FF95480093C36F /* MUSFireBaseID.swift */; };
 		9B69DC9A27F630E400B6DE36 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69DC9927F630E400B6DE36 /* GameOverViewController.swift */; };
 		9BA49E7827F3DCC400E55FA7 /* MUSGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA49E7727F3DCC400E55FA7 /* MUSGame.swift */; };
 		9BF2224027E2AA8D00572F1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2223E27E2AA8D00572F1A /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		203FDE9827FF95480093C36F /* MUSFireBaseID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSFireBaseID.swift; sourceTree = "<group>"; };
 		9B69DC9927F630E400B6DE36 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		9BA49E7727F3DCC400E55FA7 /* MUSGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSGame.swift; sourceTree = "<group>"; };
 		C70B134B27E42D0C00ED23EB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		203FDE9A27FF956D0093C36F /* FireBase */ = {
+			isa = PBXGroup;
+			children = (
+				203FDE9827FF95480093C36F /* MUSFireBaseID.swift */,
+			);
+			path = FireBase;
+			sourceTree = "<group>";
+		};
 		C70B134A27E42CF600ED23EB /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 				C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */,
 				C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */,
 				F29EF8A827E3E9F0008BD3D0 /* Utils */,
+				203FDE9A27FF956D0093C36F /* FireBase */,
 				C7EA997327E1729400A0A6D1 /* Spotify API */,
 				C7EA997227E1727600A0A6D1 /* Data Types */,
 				C70B134A27E42CF600ED23EB /* User Interface */,
@@ -269,6 +280,7 @@
 				C70B135327E42D0D00ED23EB /* GameViewController.swift in Sources */,
 				9B69DC9A27F630E400B6DE36 /* GameOverViewController.swift in Sources */,
 				F25482A827DDA68F00988BF2 /* JSTools.swift in Sources */,
+				203FDE9927FF95480093C36F /* MUSFireBaseID.swift in Sources */,
 				C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */,
 				C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */,
 			);
