@@ -26,18 +26,9 @@ class MUSFireBaseID {
                 let currentDate = Date()
                 let numberOfDays = calendar.dateComponents([.day], from: fromDate!, to: currentDate)
                 
-                
                 let tracks = data["tracks"] as! [String]
-//                var i = 0
-//                for track in tracks {
-//                    print("Track", i, track)
-//                    i += 1
-//                }
-                
-                print("The current track to choose", (numberOfDays.day ?? 0) % tracks.count)
-                print(tracks[(numberOfDays.day ?? 0) % tracks.count])
-                
                 self.todaySong = tracks[(numberOfDays.day ?? 0) % tracks.count]
+                
                 completion(self.todaySong)
             } else {
                 print("Document does not exist")
