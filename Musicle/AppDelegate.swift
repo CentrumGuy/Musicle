@@ -23,6 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MUSGame.userPoints = defaults.integer(forKey: "points")
         
         
+        var dateLastPlayed:Date
+        if defaults.object(forKey: "dateLastPlayed") == nil {
+            dateLastPlayed = Date(timeIntervalSince1970: 5)
+        } else {
+            dateLastPlayed = defaults.object(forKey: "dateLastPlayed") as! Date
+        }
+        
+        dateLastPlayed = Calendar.current.startOfDay(for: dateLastPlayed)
+        let today = Calendar.current.startOfDay(for: Date())
+        if dateLastPlayed == today {
+            MUSGame.canPlayToday = false
+        } else {
+            MUSGame.canPlayToday = true
+        }
+        
+        
         return true
     }
 

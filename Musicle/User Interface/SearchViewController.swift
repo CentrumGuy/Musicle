@@ -96,7 +96,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSong = songs[indexPath.row]
         if selectedSong.id == MUSGame.dailySong?.id {
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let secondController = storyboard.instantiateViewController(withIdentifier: "game_over_controller")
             self.navigationController?.pushViewController(secondController, animated: true)

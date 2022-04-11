@@ -89,8 +89,8 @@
 				C70B134F27E42D0D00ED23EB /* Main.storyboard */,
 				C70B135027E42D0D00ED23EB /* SongTableViewCell.xib */,
 				C70B135727E42D6100ED23EB /* UI Elements */,
-				C70B134D27E42D0D00ED23EB /* GameViewController.swift */,
 				C70B134E27E42D0D00ED23EB /* IntroViewController.swift */,
+				C70B134D27E42D0D00ED23EB /* GameViewController.swift */,
 				C70B134B27E42D0C00ED23EB /* SearchViewController.swift */,
 				9B69DC9927F630E400B6DE36 /* GameOverViewController.swift */,
 			);

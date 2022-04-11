@@ -35,8 +35,24 @@ class IntroViewController: UIViewController {
     }
 
     @IBAction func playGameButtonPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let secondController = storyboard.instantiateViewController(withIdentifier: "game_controller")
-        self.navigationController?.pushViewController(secondController, animated: true)
+        
+        if MUSGame.canPlayToday! {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let secondController = storyboard.instantiateViewController(withIdentifier: "game_controller")
+            self.navigationController?.pushViewController(secondController, animated: true)
+        } else {
+            // Display alert that user has already played today.
+            var alert = UIAlertController(title: "Cannot play today's game", message: "You have already played today! Come back tomorrow", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                 print("Ok button tapped")
+              })
+            alert.addAction(ok)
+            
+            self.present(alert, animated: true, completion: nil)
+            print("Game already played today")
+        }
+        
     }
+    
+    @IBAction func unwindToIntroView(segue: UIStoryboardSegue) {}
 }

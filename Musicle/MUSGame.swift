@@ -11,4 +11,5 @@ class MUSGame {
     static var dailySong:MUSSong?
     static var userSelectedSong:MUSSong?
     static var userPoints:Int?
+    static var canPlayToday:Bool?
 }
