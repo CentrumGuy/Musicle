@@ -43,20 +43,25 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         print("view did load")
         
-        MUSSpotifyAPI.shared.getSong(songID: "73uuR2zG9qcTuYX5A4JUyR") { song in
-            MUSGame.dailySong = song
-            guard let songURL = song?.previewURL else { return }
-            
-            self.downloadFileFromURLIfNeeded(urlString: songURL.absoluteString) { fileURL in
-                guard let fileURL = fileURL else { return }
-                print(fileURL, " ABSOLUTE URL")
+        MUSFireBaseID.shared.getDailySong(completion: { firebase_song in
+           print("Today's song is: ", firebase_song)
+//            MUSSpotifyAPI.shared.getSong(songID: firebase_song!) { song in
+            MUSSpotifyAPI.shared.getSong(songID: firebase_song!) { song in
+                MUSGame.dailySong = song
+                guard let songURL = song?.previewURL else { return }
                 
-                self.audioPlayer = try? AVAudioPlayer(contentsOf: fileURL)
-                self.audioPlayer?.play()
-                print(self.audioPlayer, ": IS PLAYING A SONG")
-                self.audioPlayer?.isMeteringEnabled = true
+                self.downloadFileFromURLIfNeeded(urlString: songURL.absoluteString) { fileURL in
+                    guard let fileURL = fileURL else { return }
+                    print(fileURL, " ABSOLUTE URL")
+                    
+                    self.audioPlayer = try? AVAudioPlayer(contentsOf: fileURL)
+                    self.audioPlayer?.play()
+                    print(self.audioPlayer, ": IS PLAYING A SONG")
+                    self.audioPlayer?.isMeteringEnabled = true
+                }
             }
-        }
+        })
+        
         
         // Do any additional setup after loading the view.
         // Creating gradient background
