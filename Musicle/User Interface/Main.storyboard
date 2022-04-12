@@ -470,8 +470,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yds-2H-Udt">
-                                <rect key="frame" x="16" y="134" width="343" height="678"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yds-2H-Udt">
+                                <rect key="frame" x="0.0" y="134" width="375" height="678"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
                             </tableView>
@@ -480,10 +480,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yds-2H-Udt" firstAttribute="top" secondItem="jac-dR-Fd4" secondAttribute="bottom" constant="16" id="0wH-YZ-GGs"/>
-                            <constraint firstItem="yds-2H-Udt" firstAttribute="trailing" secondItem="jac-dR-Fd4" secondAttribute="trailing" id="5Fe-ak-6gY"/>
+                            <constraint firstAttribute="trailing" secondItem="yds-2H-Udt" secondAttribute="trailing" id="An2-Ti-XM1"/>
                             <constraint firstItem="jac-dR-Fd4" firstAttribute="leading" secondItem="J4M-03-aum" secondAttribute="leading" constant="16" id="Ey2-gS-Sbi"/>
                             <constraint firstAttribute="bottom" secondItem="yds-2H-Udt" secondAttribute="bottom" id="L9W-2k-Srd"/>
-                            <constraint firstItem="yds-2H-Udt" firstAttribute="leading" secondItem="jac-dR-Fd4" secondAttribute="leading" id="Lol-gG-oqo"/>
+                            <constraint firstItem="yds-2H-Udt" firstAttribute="leading" secondItem="ggF-Fm-UZY" secondAttribute="leading" id="SMF-Ms-FLF"/>
                             <constraint firstItem="jac-dR-Fd4" firstAttribute="centerX" secondItem="J4M-03-aum" secondAttribute="centerX" id="WJX-n0-7HR"/>
                             <constraint firstItem="jac-dR-Fd4" firstAttribute="top" secondItem="J4M-03-aum" secondAttribute="top" constant="32" id="ewa-Ue-4DL"/>
                         </constraints>
