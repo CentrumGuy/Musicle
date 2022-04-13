@@ -52,6 +52,6 @@ class GameOverViewController: UIViewController {
     }
     
     @IBAction func closeButtonWasTapped(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToIntroView", sender: self)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
