@@ -15,7 +15,7 @@ class GameOverViewController: UIViewController {
     @IBOutlet weak var CoverImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var guessText: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +63,15 @@ class GameOverViewController: UIViewController {
         if guessCount > 5 {
             guessText.text = "After \(guessCount) guesses, you were still unable to guess today's song... Come back tomorrow and try again!"
         } else {
-            guessText.text = "Guesses: \(guessCount)"
+            guessText.text = "Guesses: \(guessCount). Come back tomorrow and try again!"
         }
     }
-    
+    func bragToFriends() {
+        let items = ["Yo, I just guessed today's song on Musicle. Check it out!"]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
+    @IBAction func shareButtonWasTapped(_ sender: Any) {
+        bragToFriends()
+    }
 }

@@ -358,13 +358,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-Gq-Rip">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-Gq-Rip">
                                 <rect key="frame" x="20" y="712" width="335" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aPQ-jQ-0IE"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Close" cornerStyle="large">
+                                <buttonConfiguration key="configuration" style="plain" title="Share" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
@@ -372,7 +372,7 @@
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="closeButtonWasTapped:" destination="sqr-Uc-HCA" eventType="touchUpInside" id="nhR-Pl-Jfd"/>
+                                    <action selector="shareButtonWasTapped:" destination="sqr-Uc-HCA" eventType="touchUpInside" id="JL5-SK-fo3"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJp-fc-4wO">
@@ -427,10 +427,10 @@
                     <connections>
                         <outlet property="CoverImageView" destination="sn2-h5-GpY" id="UCp-PU-qjh"/>
                         <outlet property="artistNameLabel" destination="2Nc-Lx-0lT" id="T5T-5j-LAZ"/>
-                        <outlet property="closeButton" destination="oVs-Gq-Rip" id="Uee-E0-rpV"/>
                         <outlet property="correctLabel" destination="270-53-Sam" id="3Cc-2f-gJl"/>
                         <outlet property="guessText" destination="xQA-GD-jdO" id="dJQ-nX-ex2"/>
                         <outlet property="pointsLabel" destination="HHi-VS-CZw" id="1gE-84-9EJ"/>
+                        <outlet property="shareButton" destination="oVs-Gq-Rip" id="Uee-E0-rpV"/>
                         <outlet property="songNameLabel" destination="py7-dc-WDl" id="709-sC-zWA"/>
                     </connections>
                 </viewController>
