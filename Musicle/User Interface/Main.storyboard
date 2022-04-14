@@ -449,7 +449,7 @@
                                             <constraint firstAttribute="height" constant="34" id="WVY-9T-mlm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                         <connections>
                                             <action selector="textFieldWasChanged:" destination="dOD-d2-QJT" eventType="valueChanged" id="1NV-6n-xF5"/>
                                         </connections>
