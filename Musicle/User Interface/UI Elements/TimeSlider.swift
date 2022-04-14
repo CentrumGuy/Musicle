@@ -61,6 +61,8 @@ open class TimeSlider: UIView, UIGestureRecognizerDelegate {
         mediaCompletionView.layer.cornerRadius = 2
         mediaCompletionView.translatesAutoresizingMaskIntoConstraints = false
         
+        mediaProgressIndicator.isHidden = true
+        
         view.addSubview(mediaCompletionView)
         view.addSubview(mediaProgressIndicator)
         view.addSubview(timePassedLabel)
@@ -207,7 +209,7 @@ open class TimeSlider: UIView, UIGestureRecognizerDelegate {
     
     private func commonInit() {
         translatesAutoresizingMaskIntoConstraints = false
-        addGestureRecognizer(panGesture)
+//        addGestureRecognizer(panGesture)
         addSubview(mediaProgressView)
     
         var constraints: [NSLayoutConstraint] = [
@@ -249,12 +251,12 @@ open class TimeSlider: UIView, UIGestureRecognizerDelegate {
             } else if xLocation > mediaProgressView.bounds.width {
                 xLocation = mediaProgressView.bounds.width
             }
-            
+
             let newProgress = xLocation / mediaProgressView.bounds.width
             progress = newProgress
             delegate?.timeSliderDidSlide?(self, with: progress)
             delegate?.timeSliderDidUpdateProgress?(self, with: progress)
-            
+
             UIView.animate(withDuration: 0.2) { [weak this = self] in
                 this?.timePassedLabel.transform = newProgress <= 0.2 ? CGAffineTransform(translationX: 0, y: 8) : .identity
                 this?.timeRemainingLabel.transform = newProgress >= 0.8 ? CGAffineTransform(translationX: 0, y: 8) : .identity
