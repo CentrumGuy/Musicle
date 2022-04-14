@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		203FDE9927FF95480093C36F /* MUSRemoteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203FDE9827FF95480093C36F /* MUSRemoteHandler.swift */; };
+		2084A2442808E3ED0021EE67 /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084A2432808E3EC0021EE67 /* TimeSlider.swift */; };
 		20BAB5632807A8AB00E92702 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 20BAB5622807A8AB00E92702 /* FirebaseAnalytics */; };
 		20BAB5652807A8AB00E92702 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 20BAB5642807A8AB00E92702 /* FirebaseAnalyticsSwift-Beta */; };
 		20BAB5672807A8AB00E92702 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 20BAB5662807A8AB00E92702 /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		203FDE9827FF95480093C36F /* MUSRemoteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSRemoteHandler.swift; sourceTree = "<group>"; };
+		2084A2432808E3EC0021EE67 /* TimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSlider.swift; path = "UI Elements/TimeSlider.swift"; sourceTree = "<group>"; };
 		9B69DC9927F630E400B6DE36 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		9BA49E7727F3DCC400E55FA7 /* MUSGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSGame.swift; sourceTree = "<group>"; };
 		C70B134B27E42D0C00ED23EB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		C70B134A27E42CF600ED23EB /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2084A2432808E3EC0021EE67 /* TimeSlider.swift */,
 				C70B134F27E42D0D00ED23EB /* Main.storyboard */,
 				C70B135027E42D0D00ED23EB /* SongTableViewCell.xib */,
 				C70B135727E42D6100ED23EB /* UI Elements */,
@@ -370,6 +373,7 @@
 				F25482A827DDA68F00988BF2 /* JSTools.swift in Sources */,
 				203FDE9927FF95480093C36F /* MUSRemoteHandler.swift in Sources */,
 				C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */,
+				2084A2442808E3ED0021EE67 /* TimeSlider.swift in Sources */,
 				C7629A312808C8DF003ACA38 /* MUSAudioPlayer.swift in Sources */,
 				C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */,
 			);

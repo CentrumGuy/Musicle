@@ -163,7 +163,7 @@
                                 </constraints>
                             </view>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="221.66666666666663" width="375" height="242.33333333333337"/>
+                                <rect key="frame" x="0.0" y="221.66666666666663" width="375" height="202.33333333333337"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
@@ -181,16 +181,19 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="e26-Br-v7p">
-                                <rect key="frame" x="20" y="496" width="335" height="154"/>
+                                <rect key="frame" x="20" y="456" width="335" height="194"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SXw-Wv-Wci">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="4"/>
-                                    </progressView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h4D-vh-RQE" userLabel="Buttons Stack">
-                                        <rect key="frame" x="0.0" y="31" width="335" height="64"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7u-W2-TDW" customClass="TimeSlider" customModule="Musicle" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="q9h-tj-URw"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="h4D-vh-RQE" userLabel="Buttons Stack">
+                                        <rect key="frame" x="0.0" y="71" width="335" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbS-Ft-43V">
-                                                <rect key="frame" x="0.0" y="0.0" width="165" height="64"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="159.66666666666666" height="64"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" image="pause.fill" catalog="system" imagePlacement="top" title="Pause" imagePadding="5" cornerStyle="small">
@@ -203,7 +206,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV2-Mr-30J">
-                                                <rect key="frame" x="170" y="0.0" width="165" height="64"/>
+                                                <rect key="frame" x="175.66666666666663" y="0.0" width="159.33333333333337" height="64"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" image="arrow.uturn.backward.circle.fill" catalog="system" imagePlacement="top" title="Rewind" imagePadding="5" cornerStyle="small">
@@ -221,7 +224,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for the song match below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWg-Id-5kq">
-                                        <rect key="frame" x="0.0" y="122" width="335" height="32"/>
+                                        <rect key="frame" x="0.0" y="162" width="335" height="32"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="7V8-Ps-Bpl"/>
@@ -257,7 +260,7 @@
                     <connections>
                         <outlet property="playPauseButton" destination="MbS-Ft-43V" id="CBy-np-wjf"/>
                         <outlet property="pointsLabel" destination="qrY-iJ-TG7" id="wHB-ri-XIa"/>
-                        <outlet property="progressBar" destination="SXw-Wv-Wci" id="kUC-on-y2t"/>
+                        <outlet property="timeSlider" destination="R7u-W2-TDW" id="Ruf-Cd-V8O"/>
                         <outlet property="waveView" destination="5Vq-Y2-i2z" id="5zC-ES-Hjg"/>
                         <segue destination="dMr-zJ-gu9" kind="unwind" identifier="unwindToIntroView" unwindAction="unwindToIntroViewWithSegue:" id="xvb-Nl-YoR"/>
                     </connections>
