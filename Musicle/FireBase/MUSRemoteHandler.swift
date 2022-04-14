@@ -8,15 +8,21 @@
 import FirebaseFirestore
 import UIKit
 
-class MUSFireBaseID {
-    static let shared = MUSFireBaseID()
+class MUSRemoteHandler {
+    static let shared = MUSRemoteHandler()
     
-    let database = Firestore.firestore()
-    private var todaySong: String?
+    private let database = Firestore.firestore()
+    private var _dailySong: MUSSong?
+    
     
     private init() {}
     
-    func getDailySong(completion: @escaping (String?) -> ()) {
+    func getDailySong(completion: @escaping (MUSSong?) -> ()) {
+        if let dailySong = _dailySong {
+            completion(dailySong)
+            return
+        }
+        
         let docRef = database.document("main/daily_tracks")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists, let data = document.data() {
@@ -27,13 +33,15 @@ class MUSFireBaseID {
                 let numberOfDays = calendar.dateComponents([.day], from: fromDate!, to: currentDate)
                 
                 let tracks = data["tracks"] as! [String]
-                self.todaySong = tracks[(numberOfDays.day ?? 0) % tracks.count]
+                let trackID = tracks[(numberOfDays.day ?? 0) % tracks.count]
                 
-                completion(self.todaySong)
+                MUSSpotifyAPI.shared.getSong(songID: trackID) { song in
+                    self._dailySong = song
+                    completion(song)
+                }
             } else {
                 print("Document does not exist")
             }
-            
         }
     }
 }
