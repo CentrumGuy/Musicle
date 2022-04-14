@@ -12,13 +12,12 @@ class MUSRemoteHandler {
     static let shared = MUSRemoteHandler()
     
     private let database = Firestore.firestore()
-    private var _dailySong: MUSSong?
     
     
     private init() {}
     
     func getDailySong(completion: @escaping (MUSSong?) -> ()) {
-        if let dailySong = _dailySong {
+        if let dailySong = MUSGame.dailySong {
             completion(dailySong)
             return
         }
@@ -36,7 +35,7 @@ class MUSRemoteHandler {
                 let trackID = tracks[(numberOfDays.day ?? 0) % tracks.count]
                 
                 MUSSpotifyAPI.shared.getSong(songID: trackID) { song in
-                    self._dailySong = song
+                    MUSGame.dailySong = song
                     completion(song)
                 }
             } else {
