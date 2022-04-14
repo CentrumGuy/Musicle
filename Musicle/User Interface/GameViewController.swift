@@ -99,6 +99,14 @@ class GameViewController: UIViewController {
         
     }
     
+    func audioPauserFunction() {
+        let timePlayed = audioPlayer?.currentTime
+        
+        if timePlayed == 5 {
+            audioPlayer?.pause()
+        }
+    }
+    
     @IBAction func playPauseButtonWasPressed(_ sender: UIButton) {
         playPauseButton.isSelected.toggle()
         guard let audioPlayer = audioPlayer else { return }
