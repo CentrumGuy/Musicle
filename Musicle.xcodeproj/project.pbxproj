@@ -49,6 +49,7 @@
 		C70B135C27E42DB100ED23EB /* Card in Frameworks */ = {isa = PBXBuildFile; productRef = C70B135B27E42DB100ED23EB /* Card */; };
 		C70B135E27E42DE300ED23EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70B135D27E42DE300ED23EB /* AVFoundation.framework */; };
 		C74D890327BEEDBE0078690E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C74D890227BEEDBE0078690E /* GoogleService-Info.plist */; };
+		C7629A312808C8DF003ACA38 /* MUSAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7629A302808C8DF003ACA38 /* MUSAudioPlayer.swift */; };
 		C76FF1B627E42F74001AD504 /* Midnight (Kygo Remix).m4a in Resources */ = {isa = PBXBuildFile; fileRef = C76FF1B527E42F74001AD504 /* Midnight (Kygo Remix).m4a */; };
 		C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */; };
 		C7EEAD7C27BEEC3E007A7E50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		C70B135827E42D7800ED23EB /* SwiftSiriWaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSiriWaveformView.swift; sourceTree = "<group>"; };
 		C70B135D27E42DE300ED23EB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C74D890227BEEDBE0078690E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C7629A302808C8DF003ACA38 /* MUSAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSAudioPlayer.swift; sourceTree = "<group>"; };
 		C76FF1B527E42F74001AD504 /* Midnight (Kygo Remix).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Midnight (Kygo Remix).m4a"; sourceTree = "<group>"; };
 		C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSpotifyAPI.swift; path = "Musicle/Spotify API/MUSSpotifyAPI.swift"; sourceTree = SOURCE_ROOT; };
 		C7EA996F27E1727300A0A6D1 /* MUSSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSong.swift; path = "Musicle/Data Types/MUSSong.swift"; sourceTree = SOURCE_ROOT; };
@@ -167,6 +169,7 @@
 			children = (
 				C7EA996F27E1727300A0A6D1 /* MUSSong.swift */,
 				F28ED6E027FCFEB3007DD838 /* MUSArtwork.swift */,
+				C7629A302808C8DF003ACA38 /* MUSAudioPlayer.swift */,
 			);
 			path = "Data Types";
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				F25482A827DDA68F00988BF2 /* JSTools.swift in Sources */,
 				203FDE9927FF95480093C36F /* MUSFireBaseID.swift in Sources */,
 				C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */,
+				C7629A312808C8DF003ACA38 /* MUSAudioPlayer.swift in Sources */,
 				C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,7 +519,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 85LSBGYCRW;
+				DEVELOPMENT_TEAM = SKLTWZD2Z5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Musicle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -544,7 +548,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 85LSBGYCRW;
+				DEVELOPMENT_TEAM = SKLTWZD2Z5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Musicle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
