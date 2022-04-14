@@ -131,7 +131,6 @@ class MUSSpotifyAPI {
             let artist = item.child("artists").children.first?.child("name").val as? String
             let album = item.child("album").child("name").val as? String
             let previewURL = item.child("preview_url").val as? String
-            print("The preview URL is", previewURL)
             let highQualityUrl = item.child("album").child("images").children[0].child("url").val as? String
             let mediumQualityUrl = item.child("album").child("images").children[1].child("url").val as? String
             let lowQualityUrl = item.child("album").child("images").children[2].child("url").val as? String
