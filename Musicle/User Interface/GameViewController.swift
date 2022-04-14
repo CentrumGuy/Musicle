@@ -15,6 +15,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
     @IBOutlet private weak var waveView: SwiftSiriWaveformView!
     @IBOutlet private weak var playPauseButton: UIButton!
     @IBOutlet weak var timeSlider: TimeSlider!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
     private let audioPlayer = MUSAudioPlayer()
     private var displayLink: CADisplayLink?
@@ -22,7 +23,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadingView.startAnimating()
         MUSRemoteHandler.shared.getDailySong { [weak this = self] dailySong in
             this?.audioPlayer.setSong(dailySong) { _ in
                 guard let this = this else { return }
@@ -30,6 +31,9 @@ class GameViewController: UIViewController, TimeSliderDelegate {
                 player.playbackDeadline = 5
                 player.shouldLoop = true
                 player.isPlaying = true
+                DispatchQueue.main.async {
+                    self.loadingView.stopAnimating()
+                }
             }
         }
         

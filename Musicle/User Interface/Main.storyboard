@@ -164,7 +164,21 @@
                             </view>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="221.66666666666663" width="375" height="202.33333333333337"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WIY-AZ-4fq">
+                                        <rect key="frame" x="169" y="82.666666666666657" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="WhR-ag-29j"/>
+                                            <constraint firstAttribute="width" constant="37" id="bpk-W8-L4g"/>
+                                        </constraints>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="WIY-AZ-4fq" firstAttribute="centerX" secondItem="5Vq-Y2-i2z" secondAttribute="centerX" id="99w-E0-Yjy"/>
+                                    <constraint firstItem="WIY-AZ-4fq" firstAttribute="centerY" secondItem="5Vq-Y2-i2z" secondAttribute="centerY" id="S7c-Wc-rXV"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
                                         <integer key="value" value="2"/>
@@ -258,6 +272,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="WIY-AZ-4fq" id="lFm-mQ-3Mp"/>
                         <outlet property="playPauseButton" destination="MbS-Ft-43V" id="CBy-np-wjf"/>
                         <outlet property="pointsLabel" destination="qrY-iJ-TG7" id="wHB-ri-XIa"/>
                         <outlet property="timeSlider" destination="R7u-W2-TDW" id="Ruf-Cd-V8O"/>
