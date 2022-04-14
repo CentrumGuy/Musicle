@@ -31,7 +31,7 @@ class GameOverViewController: UIViewController {
         
         
         // Configuring Info Card
-        guard let dailySong = MUSGame.dailySong else { return }
+        guard let dailySong = MUSGame.current.dailySong else { return }
         
         
         artistNameLabel.text = "\(dailySong.artist) • \(dailySong.album)"
@@ -59,7 +59,7 @@ class GameOverViewController: UIViewController {
         } else {
             correctLabel.text = "Incorrect..."
         }
-        pointsLabel.text = String(MUSGame.userPoints!)
+        pointsLabel.text = String(MUSGame.current.totalPoints!)
         if guessCount > 5 {
             guessText.text = "After \(guessCount) guesses, you were still unable to guess today's song... Come back tomorrow and try again!"
         } else {

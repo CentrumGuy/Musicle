@@ -102,7 +102,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         numGuesses = numGuesses + 1
         print("guessed")
         secondController.loadViewIfNeeded()
-        if selectedSong.id == MUSGame.dailySong?.id {
+        if selectedSong.id == MUSGame.current.dailySong?.id {
             secondController.configureViewWithCorrectInfo(correct: true, guessCount: numGuesses)
             self.navigationController?.pushViewController(secondController, animated: true)
         } else if numGuesses > 5 {

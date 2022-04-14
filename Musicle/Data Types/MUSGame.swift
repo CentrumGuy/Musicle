@@ -13,6 +13,7 @@ class MUSGame {
     private init () {}
     
     var dailySong: MUSSong?
+    var canPlayToday: Bool?
     var totalPoints: Int?
     
     var guessCount = 0

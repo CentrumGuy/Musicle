@@ -17,7 +17,7 @@ class MUSRemoteHandler {
     private init() {}
     
     func getDailySong(completion: @escaping (MUSSong?) -> ()) {
-        if let dailySong = MUSGame.dailySong {
+        if let dailySong = MUSGame.current.dailySong {
             completion(dailySong)
             return
         }
@@ -35,7 +35,7 @@ class MUSRemoteHandler {
                 let trackID = tracks[(numberOfDays.day ?? 0) % tracks.count]
                 
                 MUSSpotifyAPI.shared.getSong(songID: trackID) { song in
-                    MUSGame.dailySong = song
+                    MUSGame.current.dailySong = song
                     completion(song)
                 }
             } else {

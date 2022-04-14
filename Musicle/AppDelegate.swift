@@ -20,12 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaults = UserDefaults()
         
-        MUSGame.userPoints = defaults.integer(forKey: "points")
+        MUSGame.current.totalPoints = defaults.integer(forKey: "points")
         
         let testingMode = true // CHANGE THIS IF YOU WANT TESTING OR NOT
         
         if testingMode {
-            MUSGame.canPlayToday = true
+            MUSGame.current.canPlayToday = true
         } else {
             var dateLastPlayed:Date
             if defaults.object(forKey: "dateLastPlayed") == nil {
@@ -37,9 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dateLastPlayed = Calendar.current.startOfDay(for: dateLastPlayed)
             let today = Calendar.current.startOfDay(for: Date())
             if dateLastPlayed == today {
-                MUSGame.canPlayToday = false
+                MUSGame.current.canPlayToday = false
             } else {
-                MUSGame.canPlayToday = true
+                MUSGame.current.canPlayToday = true
             }
         }
         

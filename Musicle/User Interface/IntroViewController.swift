@@ -29,14 +29,14 @@ class IntroViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
         
         //Placing the users current points on display
-        guard let points = MUSGame.userPoints else { return }
+        guard let points = MUSGame.current.totalPoints else { return }
         playerTotalPoints.text = String(points)
         
     }
 
     @IBAction func playGameButtonPressed(_ sender: Any) {
         
-        if MUSGame.canPlayToday! {
+        if MUSGame.current.canPlayToday! {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let secondController = storyboard.instantiateViewController(withIdentifier: "game_controller")
             self.navigationController?.pushViewController(secondController, animated: true)
