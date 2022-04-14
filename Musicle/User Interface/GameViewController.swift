@@ -91,7 +91,6 @@ class GameViewController: UIViewController {
     
 }
 
-
 extension GameViewController: CardParent {
     func cardAnimatorWillPresentCard(_ cardAnimator: CardAnimator, withAnimationParameters animationParameters: inout SpringAnimationContext) {
         cardAnimator.pullTabEnabled = true
