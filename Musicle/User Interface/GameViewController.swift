@@ -70,7 +70,7 @@ class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        displayLink = CADisplayLink(target: self, selector: #selector(updateWave))
+        displayLink = CADisplayLink(target: self, selector: #selector(onScreenUpdate))
         displayLink?.add(to: .main, forMode: .default)
     }
     
