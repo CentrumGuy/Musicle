@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var songsTable: UITableView!
     @IBOutlet weak var songInputTextField: UITextField!
-    
+    var numGuesses = 0
     
     
     
@@ -98,14 +98,27 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let selectedSong = songs[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondController = storyboard.instantiateViewController(withIdentifier: "game_over_controller") as! GameOverViewController
+        
+        numGuesses = numGuesses + 1
+        print("guessed")
         secondController.loadViewIfNeeded()
         if selectedSong.id == MUSGame.dailySong?.id {
-            secondController.configureViewWithCorrectInfo(correct: true)
+            secondController.configureViewWithCorrectInfo(correct: true, guessCount: numGuesses)
+            self.navigationController?.pushViewController(secondController, animated: true)
+        } else if numGuesses > 5 {
+            secondController.configureViewWithCorrectInfo(correct: false, guessCount: numGuesses)
+            self.navigationController?.pushViewController(secondController, animated: true)
         } else {
-            secondController.configureViewWithCorrectInfo(correct: false)
+            var alert = UIAlertController( title: "Guess again", message: "You have already played today! Come back tomorrow", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                 print("Ok button tapped")
+              })
+            alert.addAction(ok)
+            
+            self.present(alert, animated: true, completion: nil)
         }
         
-        self.navigationController?.pushViewController(secondController, animated: true)
+        
     }
 }
 

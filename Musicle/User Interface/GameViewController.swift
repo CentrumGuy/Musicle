@@ -19,6 +19,7 @@ class GameViewController: UIViewController {
     
     private let audioPlayer = MUSAudioPlayer()
     private var displayLink: CADisplayLink!
+    
     var cardAnimator: CardAnimator?
     
      // TEMP AUDIO PLAYER that DOESNT WORK bc I removed the file in the final version

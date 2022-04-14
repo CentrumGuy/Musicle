@@ -233,6 +233,10 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KrM-kp-Lsu">
+                                <rect key="frame" x="20" y="520" width="335" height="4"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NHm-iI-cxR"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -240,11 +244,14 @@
                             <constraint firstItem="3bE-rJ-JFw" firstAttribute="centerX" secondItem="NHm-iI-cxR" secondAttribute="centerX" id="0OV-oC-JX4"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="trailing" secondItem="NHm-iI-cxR" secondAttribute="trailing" id="56a-tR-bQX"/>
                             <constraint firstItem="e26-Br-v7p" firstAttribute="top" secondItem="5Vq-Y2-i2z" secondAttribute="bottom" constant="32" id="8yY-Ju-c9W"/>
+                            <constraint firstItem="NHm-iI-cxR" firstAttribute="trailing" secondItem="KrM-kp-Lsu" secondAttribute="trailing" constant="20" id="B84-L4-t0h"/>
                             <constraint firstItem="3bE-rJ-JFw" firstAttribute="top" secondItem="NHm-iI-cxR" secondAttribute="top" constant="32" id="GcQ-xf-c0E"/>
                             <constraint firstItem="e26-Br-v7p" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" constant="20" id="K5X-PW-757"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" id="VlQ-yJ-fuK"/>
                             <constraint firstItem="NHm-iI-cxR" firstAttribute="bottom" secondItem="e26-Br-v7p" secondAttribute="bottom" constant="128" id="YSW-Ps-8EQ"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="trailing" secondItem="NHm-iI-cxR" secondAttribute="trailing" id="c8m-c2-SDo"/>
+                            <constraint firstItem="KrM-kp-Lsu" firstAttribute="top" secondItem="5Vq-Y2-i2z" secondAttribute="bottom" constant="8" id="jCe-oF-rep"/>
+                            <constraint firstItem="KrM-kp-Lsu" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" constant="20" id="kmC-3V-Aqp"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="top" secondItem="3bE-rJ-JFw" secondAttribute="bottom" constant="32" id="pG2-Ox-W8H"/>
                             <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" id="pzK-MI-aBf"/>
                             <constraint firstItem="NHm-iI-cxR" firstAttribute="trailing" secondItem="e26-Br-v7p" secondAttribute="trailing" constant="20" id="ytr-nX-Vfx"/>
@@ -253,6 +260,7 @@
                     <connections>
                         <outlet property="playPauseButton" destination="MbS-Ft-43V" id="CBy-np-wjf"/>
                         <outlet property="pointsLabel" destination="qrY-iJ-TG7" id="wHB-ri-XIa"/>
+                        <outlet property="progressBar" destination="KrM-kp-Lsu" id="DW9-s2-JtC"/>
                         <outlet property="waveView" destination="5Vq-Y2-i2z" id="5zC-ES-Hjg"/>
                         <segue destination="dMr-zJ-gu9" kind="unwind" identifier="unwindToIntroView" unwindAction="unwindToIntroViewWithSegue:" id="xvb-Nl-YoR"/>
                     </connections>
@@ -271,7 +279,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyz-Ly-v1H">
-                                <rect key="frame" x="20" y="312.33333333333331" width="335" height="187.66666666666669"/>
+                                <rect key="frame" x="20" y="302.66666666666669" width="335" height="207"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="270-53-Sam">
                                         <rect key="frame" x="124.33333333333334" y="7.9999999999999982" width="86.333333333333343" height="27.333333333333329"/>
@@ -280,7 +288,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sn2-h5-GpY">
-                                        <rect key="frame" x="8" y="107.66666666666669" width="64" height="64"/>
+                                        <rect key="frame" x="8" y="127" width="64" height="64"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="DOI-U5-l1U"/>
@@ -293,7 +301,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZD-Ku-QrO">
-                                        <rect key="frame" x="8" y="97.666666666666686" width="319" height="2"/>
+                                        <rect key="frame" x="8" y="117" width="319" height="2"/>
                                         <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="U3d-b8-fxY"/>
@@ -305,19 +313,19 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name • Album Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Nc-Lx-0lT">
-                                        <rect key="frame" x="80" y="128.33333333333337" width="247" height="20.666666666666657"/>
+                                        <rect key="frame" x="80" y="147.66666666666663" width="247" height="20.666666666666657"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py7-dc-WDl">
-                                        <rect key="frame" x="80" y="107.66666666666669" width="247" height="20.666666666666657"/>
+                                        <rect key="frame" x="80" y="127.00000000000001" width="247" height="20.666666666666671"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After 6 guesses, you were still unable to guess today's song..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQA-GD-jdO">
-                                        <rect key="frame" x="8" y="43.333333333333371" width="319" height="38.333333333333343"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After 6 guesses, you were still unable to guess today's song... Come back tomorrow and try again!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQA-GD-jdO">
+                                        <rect key="frame" x="8" y="43.333333333333314" width="319" height="57.666666666666657"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -350,7 +358,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-Gq-Rip">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-Gq-Rip">
                                 <rect key="frame" x="20" y="712" width="335" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aPQ-jQ-0IE"/>
@@ -421,6 +429,7 @@
                         <outlet property="artistNameLabel" destination="2Nc-Lx-0lT" id="T5T-5j-LAZ"/>
                         <outlet property="closeButton" destination="oVs-Gq-Rip" id="Uee-E0-rpV"/>
                         <outlet property="correctLabel" destination="270-53-Sam" id="3Cc-2f-gJl"/>
+                        <outlet property="guessText" destination="xQA-GD-jdO" id="dJQ-nX-ex2"/>
                         <outlet property="pointsLabel" destination="HHi-VS-CZw" id="1gE-84-9EJ"/>
                         <outlet property="songNameLabel" destination="py7-dc-WDl" id="709-sC-zWA"/>
                     </connections>

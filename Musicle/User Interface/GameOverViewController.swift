@@ -14,7 +14,7 @@ class GameOverViewController: UIViewController {
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var CoverImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
-    
+    @IBOutlet weak var guessText: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
     override func viewDidLoad() {
@@ -49,17 +49,22 @@ class GameOverViewController: UIViewController {
         defaults.set(Date(), forKey: "dateLastPlayed")
     }
     
-    @IBAction func closeButtonWasTapped(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
+//    @IBAction func closeButtonWasTapped(_ sender: Any) {
+//        self.navigationController?.popToRootViewController(animated: true)
+//    }
     
-    func configureViewWithCorrectInfo(correct: Bool) {
+    func configureViewWithCorrectInfo(correct: Bool, guessCount: Int) {
         if correct {
             correctLabel.text = "Correct!"
         } else {
             correctLabel.text = "Incorrect..."
         }
         pointsLabel.text = String(MUSGame.userPoints!)
+        if guessCount > 5 {
+            guessText.text = "After \(guessCount) guesses, you were still unable to guess today's song... Come back tomorrow and try again!"
+        } else {
+            guessText.text = "Guesses: \(guessCount)"
+        }
     }
     
 }
