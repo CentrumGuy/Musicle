@@ -9,13 +9,13 @@ import UIKit
 import Card
 import AVFAudio
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, TimeSliderDelegate {
 
     @IBOutlet private weak var pointsLabel: UILabel!
     @IBOutlet private weak var waveView: SwiftSiriWaveformView!
     @IBOutlet private weak var playPauseButton: UIButton!
-    @IBOutlet weak var progressBar: UIProgressView!
-    
+    @IBOutlet weak var timeSlider: TimeSlider!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
     private let audioPlayer = MUSAudioPlayer()
     private var displayLink: CADisplayLink?
@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadingView.startAnimating()
         MUSRemoteHandler.shared.getDailySong { [weak this = self] dailySong in
             this?.audioPlayer.setSong(dailySong) { _ in
                 guard let this = this else { return }
@@ -31,6 +31,9 @@ class GameViewController: UIViewController {
                 player.playbackDeadline = 5
                 player.shouldLoop = true
                 player.isPlaying = true
+                DispatchQueue.main.async {
+                    self.loadingView.stopAnimating()
+                }
             }
         }
         
@@ -49,8 +52,8 @@ class GameViewController: UIViewController {
         let cardController = storyboard.instantiateViewController(withIdentifier: "search_view") as! SearchViewController
         self.presentCard(cardController, animated: true)
         
-        // Set progress to 0
-        progressBar.setProgress(0, animated: false)
+        
+        timeSlider.mediaDuration = 30
         
         // Configuring button
         playPauseButton.setTitle("Play", for: .selected)
@@ -65,13 +68,15 @@ class GameViewController: UIViewController {
         
         let currentTime = audioPlayer.currentTime
         let progress = currentTime/30
-        progressBar.setProgress(Float(progress), animated: false)
+        timeSlider.setProgress(to: progress)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         displayLink = CADisplayLink(target: self, selector: #selector(onScreenUpdate))
         displayLink?.add(to: .main, forMode: .default)
+        
+        timeSlider.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {
