@@ -12,13 +12,23 @@ class MUSAudioPlayer {
     
     private var _currentSong: MUSSong?
     private var _player: AVAudioPlayer?
-    private lazy var listener: Timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(invokeTimer), userInfo: nil, repeats: true)
+    private lazy var timer: Timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(invokeTimer), userInfo: nil, repeats: true)
     
     var currentSong: MUSSong? { _currentSong }
     var didLoad: Bool { _player != nil }
     var playbackDeadline: TimeInterval = 0
     var shouldLoop: Bool = false
     var currentTime: TimeInterval { _player?.currentTime ?? 0 }
+    
+    var isPlaying: Bool {
+        set {
+            if newValue { _player?.play() }
+            else { _player?.pause() }
+        }
+        get { _player?.isPlaying ?? false }
+    }
+    
+    init() { timer.fire() }
     
     func setSong(_ song: MUSSong?, completion: ((Bool) -> ())?) {
         _currentSong = song
@@ -36,8 +46,21 @@ class MUSAudioPlayer {
             }
             
             this?._player = try? AVAudioPlayer(contentsOf: fileURL)
+            this?._player?.isMeteringEnabled = true
             completion?(this?._player != nil)
         }
+    }
+    
+    func getPower(shouldUpdate: Bool) -> Float {
+        guard let player = _player else { return 0 }
+        if shouldUpdate { player.updateMeters() }
+        let left = player.averagePower(forChannel: 0)
+        let right = player.averagePower(forChannel: 1)
+        return (left+right)/2
+    }
+    
+    func rewind() {
+        _player?.currentTime = 0
     }
     
     @objc private func invokeTimer() {
