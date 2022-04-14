@@ -64,6 +64,7 @@ class SearchViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            
         })
         
     }
@@ -95,14 +96,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     // Function after a user has selected a specific cell in the tableView. Will match with
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSong = songs[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let secondController = storyboard.instantiateViewController(withIdentifier: "game_over_controller") as! GameOverViewController
+        secondController.loadViewIfNeeded()
         if selectedSong.id == MUSGame.dailySong?.id {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let secondController = storyboard.instantiateViewController(withIdentifier: "game_over_controller")
-            self.navigationController?.pushViewController(secondController, animated: true)
-            
+            secondController.markAsCorrect(correct: true)
         } else {
-            print("You suck")
+            secondController.markAsCorrect(correct: false)
         }
+        
+        self.navigationController?.pushViewController(secondController, animated: true)
     }
 }
 

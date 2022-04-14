@@ -326,22 +326,22 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rqw-w2-IcA">
-                                        <rect key="frame" x="175" y="163" width="102.66666666666669" height="77"/>
+                                        <rect key="frame" x="175" y="163" width="150" height="77"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARTIST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Nc-Lx-0lT">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="17.666666666666668"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARTIST NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Nc-Lx-0lT">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="17.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SONG NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py7-dc-WDl">
-                                                <rect key="frame" x="0.0" y="29.666666666666686" width="102.66666666666667" height="17.666666666666671"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SONG NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py7-dc-WDl">
+                                                <rect key="frame" x="0.0" y="29.666666666666686" width="150" height="17.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALBUM NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pE-ZK-6Pg">
-                                                <rect key="frame" x="0.0" y="59.333333333333307" width="102.66666666666667" height="17.666666666666664"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALBUM NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pE-ZK-6Pg">
+                                                <rect key="frame" x="0.0" y="59.333333333333307" width="150" height="17.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -367,6 +367,7 @@
                                     <constraint firstAttribute="trailing" secondItem="g8u-Ve-2bW" secondAttribute="trailing" constant="8" id="7AU-xy-5h2"/>
                                     <constraint firstItem="pAA-g5-T8u" firstAttribute="leading" secondItem="sn2-h5-GpY" secondAttribute="leading" id="7wL-cD-cRw"/>
                                     <constraint firstItem="OZD-Ku-QrO" firstAttribute="trailing" secondItem="g8u-Ve-2bW" secondAttribute="trailing" id="944-Ex-yH9"/>
+                                    <constraint firstAttribute="trailing" secondItem="rqw-w2-IcA" secondAttribute="trailing" constant="10" id="JuB-ac-ggy"/>
                                     <constraint firstItem="270-53-Sam" firstAttribute="leading" secondItem="xyz-Ly-v1H" secondAttribute="leading" constant="20" id="QAl-fH-dWV"/>
                                     <constraint firstItem="TF6-1V-foe" firstAttribute="top" secondItem="OZD-Ku-QrO" secondAttribute="bottom" constant="8" symbolic="YES" id="Rt1-PJ-HKZ"/>
                                     <constraint firstItem="pAA-g5-T8u" firstAttribute="top" secondItem="g8u-Ve-2bW" secondAttribute="bottom" constant="8" symbolic="YES" id="TUr-bD-nip"/>
@@ -400,9 +401,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="closeButtonWasTapped:" destination="sqr-Uc-HCA" eventType="touchUpInside" id="aEq-Ld-0qM"/>
-                                    <action selector="playGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PkB-DM-i3T"/>
-                                    <segue destination="C6y-GH-NrJ" kind="unwind" unwindAction="unwindToIntroViewWithSegue:" id="Qh4-Rw-Oq4"/>
+                                    <action selector="closeButtonWasTapped:" destination="sqr-Uc-HCA" eventType="touchUpInside" id="nhR-Pl-Jfd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -430,7 +429,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNT-Ch-0rg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="C6y-GH-NrJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2168.8000000000002" y="233.49753694581281"/>
         </scene>

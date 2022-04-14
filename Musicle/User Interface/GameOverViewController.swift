@@ -10,7 +10,6 @@ import UIKit
 class GameOverViewController: UIViewController {
 
     @IBOutlet weak var correctLabel: UILabel!
-    
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var albumNameLabel: UILabel!
@@ -35,15 +34,15 @@ class GameOverViewController: UIViewController {
         // Configuring Info Card
         guard let dailySong = MUSGame.dailySong else { return }
         
+        
         artistNameLabel.text = dailySong.artist
         songNameLabel.text = dailySong.title
         albumNameLabel.text = dailySong.album
         dailySong.albumArt.getArtwork { image in
             self.CoverImageView.image = image
         }
-        pointsLabel.text = "Points: 0 :( "
+        pointsLabel.text = "Points: " + String(MUSGame.userPoints!)
         
-        //
         let defaults = UserDefaults()
         var newPoints = defaults.integer(forKey: "points")
         newPoints = newPoints + 1
@@ -54,4 +53,14 @@ class GameOverViewController: UIViewController {
     @IBAction func closeButtonWasTapped(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    func markAsCorrect(correct: Bool) {
+        if correct {
+            correctLabel.text = "Correct!"
+        } else {
+            correctLabel.text = "Incorrect..."
+        }
+        
+    }
+    
 }
