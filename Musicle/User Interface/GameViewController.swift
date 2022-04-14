@@ -44,8 +44,7 @@ class GameViewController: UIViewController {
         print("view did load")
         
         MUSFireBaseID.shared.getDailySong(completion: { firebase_song in
-           print("Today's song is: ", firebase_song)
-//            MUSSpotifyAPI.shared.getSong(songID: firebase_song!) { song in
+           print("Today's song is: ", firebase_song!)
             MUSSpotifyAPI.shared.getSong(songID: firebase_song!) { song in
                 MUSGame.dailySong = song
                 guard let songURL = song?.previewURL else { return }
@@ -56,7 +55,7 @@ class GameViewController: UIViewController {
                     
                     self.audioPlayer = try? AVAudioPlayer(contentsOf: fileURL)
                     self.audioPlayer?.play()
-                    print(self.audioPlayer, ": IS PLAYING A SONG")
+                    print(self.audioPlayer!, ": IS PLAYING A SONG")
                     self.audioPlayer?.isMeteringEnabled = true
                 }
             }
