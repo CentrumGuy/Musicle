@@ -14,6 +14,8 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var pointsLabel: UILabel!
     @IBOutlet private weak var waveView: SwiftSiriWaveformView!
     @IBOutlet private weak var playPauseButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     
     private let audioPlayer = MUSAudioPlayer()
     private var displayLink: CADisplayLink!
@@ -52,19 +54,25 @@ class GameViewController: UIViewController {
         self.presentCard(cardController, animated: true)
         
         // Wave View Timer
-        displayLink = CADisplayLink(target: self, selector: #selector(updateWave))
+        displayLink = CADisplayLink(target: self, selector: #selector(onScreenUpdate))
         displayLink.add(to: .main, forMode: .default)
+        
+        progressBar.setProgress(0, animated: false)
         
         // Configuring button
         playPauseButton.setTitle("Play", for: .selected)
         playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .selected)
     }
 
-    @objc func updateWave() {
+    @objc func onScreenUpdate() {
         let beforeAverage = audioPlayer.getPower(shouldUpdate: false)
         let average = audioPlayer.getPower(shouldUpdate: true)
         let power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
         waveView.amplitude = CGFloat(power)
+        
+        let currentTime = audioPlayer.currentTime
+        let progress = currentTime/30
+        progressBar.setProgress(Float(progress), animated: true)
     }
     
     @IBAction func playPauseButtonWasPressed(_ sender: UIButton) {
