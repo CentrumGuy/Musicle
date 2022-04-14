@@ -45,7 +45,6 @@ class GameViewController: UIViewController {
         
         MUSFireBaseID.shared.getDailySong(completion: { firebase_song in
            print("Today's song is: ", firebase_song)
-//            MUSSpotifyAPI.shared.getSong(songID: firebase_song!) { song in
             MUSSpotifyAPI.shared.getSong(songID: firebase_song!) { song in
                 MUSGame.dailySong = song
                 guard let songURL = song?.previewURL else { return }
