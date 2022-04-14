@@ -18,13 +18,8 @@ class GameViewController: UIViewController {
     
     
     private let audioPlayer = MUSAudioPlayer()
-    private var displayLink: CADisplayLink!
-    
+    private var displayLink: CADisplayLink?
     var cardAnimator: CardAnimator?
-    
-     // TEMP AUDIO PLAYER that DOESNT WORK bc I removed the file in the final version
-    
-    // Frank Ocean Lost - 3GZD6HmiNUhxXYf8Gch723
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +49,7 @@ class GameViewController: UIViewController {
         let cardController = storyboard.instantiateViewController(withIdentifier: "search_view") as! SearchViewController
         self.presentCard(cardController, animated: true)
         
-        // Wave View Timer
-        displayLink = CADisplayLink(target: self, selector: #selector(onScreenUpdate))
-        displayLink.add(to: .main, forMode: .default)
-        
+        // Set progress to 0
         progressBar.setProgress(0, animated: false)
         
         // Configuring button
@@ -68,12 +60,24 @@ class GameViewController: UIViewController {
     @objc func onScreenUpdate() {
         let beforeAverage = audioPlayer.getPower(shouldUpdate: false)
         let average = audioPlayer.getPower(shouldUpdate: true)
-        let power = 0.4 * pow(10, beforeAverage / 20) + 0.6 * pow(10, average / 20)
+        let power = 0.4 * pow(10, beforeAverage/20) + 0.6 * pow(10, average/20)
         waveView.amplitude = CGFloat(power)
         
         let currentTime = audioPlayer.currentTime
         let progress = currentTime/30
-        progressBar.setProgress(Float(progress), animated: true)
+        progressBar.setProgress(Float(progress), animated: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        displayLink = CADisplayLink(target: self, selector: #selector(onScreenUpdate))
+        displayLink?.add(to: .main, forMode: .default)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        displayLink?.invalidate()
+        audioPlayer.invalidateTimer()
     }
     
     @IBAction func playPauseButtonWasPressed(_ sender: UIButton) {
@@ -88,7 +92,6 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: CardParent {
-    
     func cardAnimatorWillPresentCard(_ cardAnimator: CardAnimator, withAnimationParameters animationParameters: inout SpringAnimationContext) {
         cardAnimator.pullTabEnabled = true
         cardAnimator.cornerRadius = 16

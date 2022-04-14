@@ -52,7 +52,7 @@ class MUSAudioPlayer {
     }
     
     func getPower(shouldUpdate: Bool) -> Float {
-        guard let player = _player else { return 0 }
+        guard let player = _player else { return -160 }
         if shouldUpdate { player.updateMeters() }
         let left = player.averagePower(forChannel: 0)
         let right = player.averagePower(forChannel: 1)
@@ -61,6 +61,10 @@ class MUSAudioPlayer {
     
     func rewind() {
         _player?.currentTime = 0
+    }
+    
+    func invalidateTimer() {
+        timer.invalidate()
     }
     
     @objc private func invokeTimer() {
