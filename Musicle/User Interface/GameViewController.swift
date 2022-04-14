@@ -49,10 +49,7 @@ class GameViewController: UIViewController {
         let cardController = storyboard.instantiateViewController(withIdentifier: "search_view") as! SearchViewController
         self.presentCard(cardController, animated: true)
         
-        // Wave View Timer
-        displayLink = CADisplayLink(target: self, selector: #selector(onScreenUpdate))
-        displayLink.add(to: .main, forMode: .default)
-        
+        // Set progress to 0
         progressBar.setProgress(0, animated: false)
         
         // Configuring button
