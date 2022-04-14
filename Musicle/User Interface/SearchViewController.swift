@@ -100,9 +100,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let secondController = storyboard.instantiateViewController(withIdentifier: "game_over_controller") as! GameOverViewController
         secondController.loadViewIfNeeded()
         if selectedSong.id == MUSGame.dailySong?.id {
-            secondController.markAsCorrect(correct: true)
+            secondController.configureViewWithCorrectInfo(correct: true)
         } else {
-            secondController.markAsCorrect(correct: false)
+            secondController.configureViewWithCorrectInfo(correct: false)
         }
         
         self.navigationController?.pushViewController(secondController, animated: true)
