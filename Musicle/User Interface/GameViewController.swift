@@ -65,7 +65,7 @@ class GameViewController: UIViewController {
         
         let currentTime = audioPlayer.currentTime
         let progress = currentTime/30
-        progressBar.setProgress(Float(progress), animated: true)
+        progressBar.setProgress(Float(progress), animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
