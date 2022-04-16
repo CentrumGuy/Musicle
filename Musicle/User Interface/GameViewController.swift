@@ -29,7 +29,6 @@ class GameViewController: UIViewController, TimeSliderDelegate {
                 guard let this = this else { return }
                 let player = this.audioPlayer
                 player.playbackDeadline = 5
-                player.shouldLoop = true
                 player.isPlaying = true
                 DispatchQueue.main.async {
                     self.loadingView.stopAnimating()

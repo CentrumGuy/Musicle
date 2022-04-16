@@ -37,21 +37,6 @@ class SearchViewController: UIViewController {
         self.songInputTextField.delegate = self
     }
     
-    func cardAnimator(_ cardAnimator: CardAnimator, willApplyNewOffset newOffset: StickyOffset, withAnimationParameters animationParameters: inout SpringAnimationContext) {
-        print("New offset is being applied:")
-        print(newOffset)
-        if newOffset == .init(distanceFromTop: 0) {
-            print("Can edit the textfield")
-            songInputTextField.isEnabled = true
-        } else {
-            print("Cannot edit the textfield")
-            songInputTextField.isEnabled = false
-            self.view.endEditing(true)
-            songInputTextField.text = ""
-        }
-        
-    }
-    
     func search() {
         let newSongSearchString = songInputTextField.text
         
@@ -61,9 +46,7 @@ class SearchViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            
         })
-        
     }
     
     @IBAction func textFieldWasTapped(_ sender: Any) {
@@ -117,8 +100,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             
             self.present(alert, animated: true, completion: nil)
         }
-        
-        
     }
 }
 
@@ -126,9 +107,13 @@ extension SearchViewController: Card {
     
     func stickyOffsets(forOrientation orientation: CardAnimator.CardOrientation) -> [StickyOffset] {
         return [
-            StickyOffset(percent: 0.1),
+            StickyOffset(distanceFromBottom: 120),
             StickyOffset(distanceFromTop: 0)
         ]
+    }
+    
+    func cardAnimator(_ cardAnimator: CardAnimator, willApplyNewOffset newOffset: StickyOffset, withAnimationParameters animationParameters: inout SpringAnimationContext) {
+        if newOffset == cardAnimator.stickyOffsets.first { songInputTextField.endEditing(true) }
     }
     
 }
@@ -138,6 +123,11 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         search()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let cardAnimator = cardAnimator else { return }
+        cardAnimator.setOffset(cardAnimator.stickyOffsets.last!, animated: true)
     }
     
 }
