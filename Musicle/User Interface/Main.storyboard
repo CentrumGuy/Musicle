@@ -88,38 +88,10 @@
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1NN-43-a7G">
                                 <rect key="frame" x="0.0" y="163.33333333333334" width="375" height="351.66666666666663"/>
-                                <subviews>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="375" height="224"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="224" id="h3t-7w-7hQ"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
-                                                <integer key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="amplitude">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="idleAmplitude">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="5Vq-Y2-i2z" secondAttribute="trailing" id="Tm0-qV-L2f"/>
-                                    <constraint firstItem="5Vq-Y2-i2z" firstAttribute="centerY" secondItem="1NN-43-a7G" secondAttribute="centerY" id="ZJS-pt-DW7"/>
-                                    <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="1NN-43-a7G" secondAttribute="leading" id="pTP-f3-H9S"/>
-                                    <constraint firstItem="5Vq-Y2-i2z" firstAttribute="centerX" secondItem="1NN-43-a7G" secondAttribute="centerX" id="x0f-Qp-X7F"/>
-                                </constraints>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WIY-AZ-4fq">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WIY-AZ-4fq">
                                 <rect key="frame" x="169" y="320.66666666666669" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="e26-Br-v7p">
@@ -233,20 +205,52 @@
                                     <constraint firstAttribute="height" priority="1" id="9BU-yt-f3f"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fB-sA-2RV">
+                                <rect key="frame" x="87.666666666666686" y="356" width="200" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5t-ex-83X">
+                                        <rect key="frame" x="59.333333333333336" y="68.666666666666686" width="81.333333333333314" height="27.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="osq-BS-g4b">
+                                        <rect key="frame" x="74.999999999999986" y="14.666666666666664" width="50" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="0Dg-v2-E1I"/>
+                                            <constraint firstAttribute="width" constant="50" id="BO9-dt-jgZ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="R5t-ex-83X" firstAttribute="centerX" secondItem="3fB-sA-2RV" secondAttribute="centerX" id="2Yo-wQ-ESz"/>
+                                    <constraint firstItem="osq-BS-g4b" firstAttribute="centerX" secondItem="3fB-sA-2RV" secondAttribute="centerX" id="6dc-ta-FZt"/>
+                                    <constraint firstItem="osq-BS-g4b" firstAttribute="top" secondItem="3fB-sA-2RV" secondAttribute="top" constant="12" id="XUi-i6-1Sj"/>
+                                    <constraint firstAttribute="width" constant="200" id="biU-ct-E0H"/>
+                                    <constraint firstAttribute="height" constant="100" id="qdt-G9-40F"/>
+                                    <constraint firstAttribute="bottom" secondItem="R5t-ex-83X" secondAttribute="bottom" constant="4" id="uVa-2O-E1B"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NHm-iI-cxR"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
+                            <constraint firstItem="3fB-sA-2RV" firstAttribute="centerY" secondItem="J7p-wc-2be" secondAttribute="centerY" id="4k5-QJ-eET"/>
                             <constraint firstItem="1NN-43-a7G" firstAttribute="top" secondItem="b7e-AX-KNi" secondAttribute="bottom" constant="16" id="9U3-F0-TpE"/>
                             <constraint firstItem="e26-Br-v7p" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" constant="20" id="K5X-PW-757"/>
                             <constraint firstItem="1NN-43-a7G" firstAttribute="leading" secondItem="J7p-wc-2be" secondAttribute="leading" id="Pzv-4O-uAR"/>
+                            <constraint firstItem="3fB-sA-2RV" firstAttribute="centerX" secondItem="J7p-wc-2be" secondAttribute="centerX" id="R4m-ef-pKF"/>
                             <constraint firstItem="e26-Br-v7p" firstAttribute="top" secondItem="1NN-43-a7G" secondAttribute="bottom" id="TUH-dT-lju"/>
                             <constraint firstItem="b7e-AX-KNi" firstAttribute="centerX" secondItem="NHm-iI-cxR" secondAttribute="centerX" id="XOK-5i-V5I"/>
                             <constraint firstItem="NHm-iI-cxR" firstAttribute="bottom" secondItem="e26-Br-v7p" secondAttribute="bottom" constant="128" id="YSW-Ps-8EQ"/>
                             <constraint firstItem="b7e-AX-KNi" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" constant="64" id="bhw-Tl-FR7"/>
                             <constraint firstAttribute="trailing" secondItem="1NN-43-a7G" secondAttribute="trailing" id="hmx-ZQ-oRx"/>
-                            <constraint firstItem="WIY-AZ-4fq" firstAttribute="centerX" secondItem="5Vq-Y2-i2z" secondAttribute="centerX" id="scX-N5-BsL"/>
-                            <constraint firstItem="WIY-AZ-4fq" firstAttribute="centerY" secondItem="5Vq-Y2-i2z" secondAttribute="centerY" id="xt2-7o-3cp"/>
                             <constraint firstItem="b7e-AX-KNi" firstAttribute="top" secondItem="NHm-iI-cxR" secondAttribute="top" constant="32" id="yMc-PT-4PM"/>
                             <constraint firstItem="NHm-iI-cxR" firstAttribute="trailing" secondItem="e26-Br-v7p" secondAttribute="trailing" constant="20" id="ytr-nX-Vfx"/>
                         </constraints>
@@ -262,6 +266,28 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcT-fO-4Z8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
+                    <viewLayoutGuide key="safeArea" id="OhY-n7-Yn0"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="224" id="h3t-7w-7hQ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="amplitude">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="idleAmplitude">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <exit id="dMr-zJ-gu9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1103.2" y="215.76354679802955"/>
@@ -664,6 +690,7 @@
         <image name="arrow.uturn.backward.circle.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
