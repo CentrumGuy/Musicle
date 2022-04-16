@@ -23,6 +23,15 @@ class GameOverViewController: UIViewController {
     @IBOutlet weak var statisticsCurrentStreakLabel: UILabel!
     @IBOutlet weak var statisticsMaxStreakLabel: UILabel!
     
+    // Bar Graph
+    @IBOutlet weak var firstBar: NSLayoutConstraint!
+    @IBOutlet weak var secondBar: NSLayoutConstraint!
+    @IBOutlet weak var thirdBar: NSLayoutConstraint!
+    @IBOutlet weak var fourthBar: NSLayoutConstraint!
+    @IBOutlet weak var fifthBar: NSLayoutConstraint!
+    @IBOutlet weak var sixthBar: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
