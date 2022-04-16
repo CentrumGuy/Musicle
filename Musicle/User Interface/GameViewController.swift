@@ -11,7 +11,6 @@ import AVFAudio
 
 class GameViewController: UIViewController, TimeSliderDelegate {
 
-    @IBOutlet private weak var pointsLabel: UILabel!
     @IBOutlet private weak var waveView: SwiftSiriWaveformView!
     @IBOutlet private weak var playPauseButton: UIButton!
     @IBOutlet weak var timeSlider: TimeSlider!

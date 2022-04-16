@@ -33,6 +33,8 @@ class MUSGame {
     var dailySong: MUSSong? { _dailySong }
     var statistics: MUSStatistics { _statistics }
     var canPlay: Bool { _gameState == .playing }
+    var gameState: MUSGameState { _gameState }
+    var currentGuessCount: Int { _currentGuessCount }
     
     var currentPreviewDuration: TimeInterval {
         let time: TimeInterval

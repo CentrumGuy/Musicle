@@ -89,40 +89,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="221.66666666666663" width="375" height="202.33333333333337"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1NN-43-a7G">
+                                <rect key="frame" x="0.0" y="44" width="375" height="471"/>
                                 <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WIY-AZ-4fq">
-                                        <rect key="frame" x="169" y="82.666666666666657" width="37" height="37"/>
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-Y2-i2z" customClass="SwiftSiriWaveformView" customModule="Musicle" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="123.66666666666666" width="375" height="223.99999999999997"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="WhR-ag-29j"/>
-                                            <constraint firstAttribute="width" constant="37" id="bpk-W8-L4g"/>
+                                            <constraint firstAttribute="height" constant="224" id="h3t-7w-7hQ"/>
                                         </constraints>
-                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </activityIndicatorView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="amplitude">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="idleAmplitude">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="WIY-AZ-4fq" firstAttribute="centerX" secondItem="5Vq-Y2-i2z" secondAttribute="centerX" id="99w-E0-Yjy"/>
-                                    <constraint firstItem="WIY-AZ-4fq" firstAttribute="centerY" secondItem="5Vq-Y2-i2z" secondAttribute="centerY" id="S7c-Wc-rXV"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Vq-Y2-i2z" secondAttribute="trailing" id="Tm0-qV-L2f"/>
+                                    <constraint firstItem="5Vq-Y2-i2z" firstAttribute="centerY" secondItem="1NN-43-a7G" secondAttribute="centerY" id="ZJS-pt-DW7"/>
+                                    <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="1NN-43-a7G" secondAttribute="leading" id="pTP-f3-H9S"/>
+                                    <constraint firstItem="5Vq-Y2-i2z" firstAttribute="centerX" secondItem="1NN-43-a7G" secondAttribute="centerX" id="x0f-Qp-X7F"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitude">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="idleAmplitude">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WIY-AZ-4fq">
+                                <rect key="frame" x="169" y="261" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="e26-Br-v7p">
-                                <rect key="frame" x="20" y="456" width="335" height="194"/>
+                                <rect key="frame" x="20" y="515" width="335" height="135"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7u-W2-TDW" customClass="TimeSlider" customModule="Musicle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
@@ -169,34 +173,20 @@
                                             <constraint firstAttribute="height" constant="64" id="NHs-UA-YLV"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for the song match below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWg-Id-5kq">
-                                        <rect key="frame" x="0.0" y="162" width="335" height="32"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="7V8-Ps-Bpl"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NHm-iI-cxR"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
-                            <constraint firstItem="5Vq-Y2-i2z" firstAttribute="trailing" secondItem="NHm-iI-cxR" secondAttribute="trailing" id="56a-tR-bQX"/>
-                            <constraint firstItem="e26-Br-v7p" firstAttribute="top" secondItem="5Vq-Y2-i2z" secondAttribute="bottom" constant="32" id="8yY-Ju-c9W"/>
                             <constraint firstItem="e26-Br-v7p" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" constant="20" id="K5X-PW-757"/>
-                            <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" id="VlQ-yJ-fuK"/>
+                            <constraint firstItem="1NN-43-a7G" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" id="Pzv-4O-uAR"/>
+                            <constraint firstItem="e26-Br-v7p" firstAttribute="top" secondItem="1NN-43-a7G" secondAttribute="bottom" id="TUH-dT-lju"/>
                             <constraint firstItem="NHm-iI-cxR" firstAttribute="bottom" secondItem="e26-Br-v7p" secondAttribute="bottom" constant="128" id="YSW-Ps-8EQ"/>
-                            <constraint firstItem="5Vq-Y2-i2z" firstAttribute="trailing" secondItem="NHm-iI-cxR" secondAttribute="trailing" id="c8m-c2-SDo"/>
-                            <constraint firstItem="5Vq-Y2-i2z" firstAttribute="leading" secondItem="NHm-iI-cxR" secondAttribute="leading" id="pzK-MI-aBf"/>
+                            <constraint firstItem="NHm-iI-cxR" firstAttribute="trailing" secondItem="1NN-43-a7G" secondAttribute="trailing" id="hmx-ZQ-oRx"/>
+                            <constraint firstItem="WIY-AZ-4fq" firstAttribute="centerX" secondItem="5Vq-Y2-i2z" secondAttribute="centerX" id="scX-N5-BsL"/>
+                            <constraint firstItem="WIY-AZ-4fq" firstAttribute="centerY" secondItem="5Vq-Y2-i2z" secondAttribute="centerY" id="xt2-7o-3cp"/>
+                            <constraint firstItem="1NN-43-a7G" firstAttribute="top" secondItem="NHm-iI-cxR" secondAttribute="top" id="y60-iw-psA"/>
                             <constraint firstItem="NHm-iI-cxR" firstAttribute="trailing" secondItem="e26-Br-v7p" secondAttribute="trailing" constant="20" id="ytr-nX-Vfx"/>
                         </constraints>
                     </view>
@@ -270,7 +260,6 @@
                     </view>
                     <connections>
                         <outlet property="songInputTextField" destination="yrj-Gu-PFT" id="iPJ-13-jvW"/>
-                        <outlet property="songsTable" destination="yds-2H-Udt" id="h6h-az-wVQ"/>
                         <outlet property="tableView" destination="yds-2H-Udt" id="jX1-J1-tQi"/>
                     </connections>
                 </viewController>
@@ -550,7 +539,7 @@
                                     <constraint firstAttribute="bottom" secondItem="l6I-Zs-uIY" secondAttribute="bottom" id="dUw-vL-V6G"/>
                                     <constraint firstAttribute="trailing" secondItem="HXY-yk-1ot" secondAttribute="trailing" constant="8" id="dc0-7k-ciN"/>
                                     <constraint firstItem="HXY-yk-1ot" firstAttribute="top" secondItem="a9l-gK-JCN" secondAttribute="bottom" constant="8" id="dme-7o-dT9"/>
-                                    <constraint firstItem="LJ1-RG-oON" firstAttribute="firstBaseline" secondItem="HXY-yk-1ot" secondAttribute="baseline" constant="23.333333333333332" symbolType="layoutAnchor" id="eQR-gr-qw7"/>
+                                    <constraint firstItem="LJ1-RG-oON" firstAttribute="firstBaseline" secondItem="HXY-yk-1ot" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="eQR-gr-qw7"/>
                                     <constraint firstItem="HXY-yk-1ot" firstAttribute="leading" secondItem="JkG-4y-6cb" secondAttribute="leading" constant="8" id="gvH-YY-6kF"/>
                                     <constraint firstItem="l6I-Zs-uIY" firstAttribute="trailing" secondItem="LJ1-RG-oON" secondAttribute="trailing" id="pm3-UL-bif"/>
                                     <constraint firstItem="l6I-Zs-uIY" firstAttribute="leading" secondItem="LJ1-RG-oON" secondAttribute="leading" id="sZe-lM-o7v"/>

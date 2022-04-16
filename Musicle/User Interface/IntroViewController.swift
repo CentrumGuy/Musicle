@@ -10,7 +10,6 @@ import UIKit
 class IntroViewController: UIViewController {
 
     @IBOutlet weak var startGameButton: UIButton!
-    @IBOutlet weak var playerTotalPoints: UILabel!
     @IBOutlet weak var onboardingTextLabel: UILabel!
     @IBOutlet weak var pointsStack: UIStackView!
     
@@ -27,9 +26,6 @@ class IntroViewController: UIViewController {
             UIColor.systemPurple.cgColor
         ]
         view.layer.insertSublayer(gradientLayer, at: 0)
-        
-        //Placing the users current points on display
-        playerTotalPoints.text = String(0)
         
     }
 

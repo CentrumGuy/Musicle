@@ -68,15 +68,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let selectedSong = songs[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondController = storyboard.instantiateViewController(withIdentifier: "game_over_controller") as! GameOverViewController
+        let currentGame = MUSGame.current
         
-        let numGuesses = 1
-        print("guessed")
         secondController.loadViewIfNeeded()
-        if selectedSong.id == MUSGame.current.dailySong?.id {
-            secondController.configureViewWithCorrectInfo(correct: true, guessCount: MUSGame.current.guessCount)
+        if selectedSong.id == currentGame.dailySong?.id {
+            secondController.configureViewWithCorrectInfo(correct: true, guessCount: currentGame.currentGuessCount)
             self.navigationController?.pushViewController(secondController, animated: true)
-        } else if MUSGame.current.guessCount > 5 {
-            secondController.configureViewWithCorrectInfo(correct: false, guessCount: MUSGame.current.guessCount)
+        } else if currentGame.currentGuessCount > 5 {
+            secondController.configureViewWithCorrectInfo(correct: false, guessCount: currentGame.currentGuessCount)
             self.navigationController?.pushViewController(secondController, animated: true)
         } else {
             let alert = UIAlertController( title: "Guess again", message: "", preferredStyle: .alert)
@@ -94,7 +93,7 @@ extension SearchViewController: Card {
     
     func stickyOffsets(forOrientation orientation: CardAnimator.CardOrientation) -> [StickyOffset] {
         return [
-            StickyOffset(distanceFromBottom: 120),
+            StickyOffset(distanceFromBottom: 100),
             StickyOffset(distanceFromTop: 0)
         ]
     }
