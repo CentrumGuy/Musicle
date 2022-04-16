@@ -44,7 +44,8 @@ class GameOverViewController: UIViewController {
         
         let defaults = UserDefaults()
         var newPoints = defaults.integer(forKey: "points")
-        newPoints = newPoints + 1
+        print("Setting new points to", newPoints)
+        newPoints = newPoints + 1 //TODO make this update points properly 
         defaults.set(newPoints, forKey: "points")
         defaults.set(Date(), forKey: "dateLastPlayed")
     }
@@ -63,7 +64,7 @@ class GameOverViewController: UIViewController {
         if guessCount > 5 {
             guessText.text = "After \(guessCount) guesses, you were still unable to guess today's song... Come back tomorrow and try again!"
         } else {
-            guessText.text = "Guesses: \(guessCount). Come back tomorrow and try again!"
+            guessText.text = "Guesses: \(guessCount). Good job! Come back tomorrow and try again!"
         }
     }
     func bragToFriends() {
