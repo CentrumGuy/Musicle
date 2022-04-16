@@ -73,10 +73,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         print("guessed")
         secondController.loadViewIfNeeded()
         if selectedSong.id == MUSGame.current.dailySong?.id {
-            secondController.configureViewWithCorrectInfo(correct: true, guessCount: numGuesses)
+            secondController.configureViewWithCorrectInfo(correct: true, guessCount: MUSGame.current.guessCount)
             self.navigationController?.pushViewController(secondController, animated: true)
-        } else if numGuesses > 5 {
-            secondController.configureViewWithCorrectInfo(correct: false, guessCount: numGuesses)
+        } else if MUSGame.current.guessCount > 5 {
+            secondController.configureViewWithCorrectInfo(correct: false, guessCount: MUSGame.current.guessCount)
             self.navigationController?.pushViewController(secondController, animated: true)
         } else {
             let alert = UIAlertController( title: "Guess again", message: "", preferredStyle: .alert)
