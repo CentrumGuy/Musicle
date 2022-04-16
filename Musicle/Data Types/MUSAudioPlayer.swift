@@ -8,11 +8,17 @@
 import Foundation
 import AVFAudio
 
+protocol MUSAudioPlayerDelegate: AnyObject {
+    func didUpdateIsPlaying(isPlaying: Bool)
+}
+
 class MUSAudioPlayer {
     
     private var _currentSong: MUSSong?
     private var _player: AVAudioPlayer?
     private lazy var timer: Timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(invokeTimer), userInfo: nil, repeats: true)
+    
+    weak var delegate: MUSAudioPlayerDelegate?
     
     var currentSong: MUSSong? { _currentSong }
     var didLoad: Bool { _player != nil }
@@ -24,6 +30,7 @@ class MUSAudioPlayer {
         set {
             if newValue { _player?.play() }
             else { _player?.pause() }
+            delegate?.didUpdateIsPlaying(isPlaying: isPlaying)
         }
         get { _player?.isPlaying ?? false }
     }
@@ -74,6 +81,7 @@ class MUSAudioPlayer {
             else {
                 player.currentTime = 0
                 player.pause()
+                delegate?.didUpdateIsPlaying(isPlaying: false)
             }
         }
     }

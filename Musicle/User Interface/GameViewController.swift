@@ -13,8 +13,10 @@ class GameViewController: UIViewController, TimeSliderDelegate {
 
     @IBOutlet private weak var waveView: SwiftSiriWaveformView!
     @IBOutlet private weak var playPauseButton: UIButton!
-    @IBOutlet weak var timeSlider: TimeSlider!
-    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private weak var timeSlider: TimeSlider!
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private weak var guessCountLabel: UILabel!
+    @IBOutlet private weak var previewDurationLabel: UILabel!
     
     private let audioPlayer = MUSAudioPlayer()
     private var displayLink: CADisplayLink?
@@ -30,7 +32,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
             this?.audioPlayer.setSong(dailySong) { _ in
                 guard let this = this else { return }
                 let player = this.audioPlayer
-                player.playbackDeadline = 5
+                player.playbackDeadline = MUSGame.current.currentPreviewDuration
                 player.isPlaying = true
                 DispatchQueue.main.async {
                     self.loadingView.stopAnimating()
@@ -52,14 +54,18 @@ class GameViewController: UIViewController, TimeSliderDelegate {
         // Adding transition to the card view
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let cardController = storyboard.instantiateViewController(withIdentifier: "search_view") as! SearchViewController
+        cardController.delegate = self
         self.presentCard(cardController, animated: true)
         
-        
-        timeSlider.mediaDuration = 30
+        audioPlayer.delegate = self
+        timeSlider.mediaDuration = MUSGame.current.currentPreviewDuration
         
         // Configuring button
         playPauseButton.setTitle("Play", for: .selected)
         playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .selected)
+        
+        didGuess(hasMoreGuesses: true)
+        didUpdateIsPlaying(isPlaying: audioPlayer.isPlaying)
     }
 
     @objc func onScreenUpdate() {
@@ -69,7 +75,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
         waveView.amplitude = CGFloat(power)
         
         let currentTime = audioPlayer.currentTime
-        let progress = currentTime/30
+        let progress = currentTime/MUSGame.current.currentPreviewDuration
         timeSlider.setProgress(to: progress)
     }
     
@@ -88,8 +94,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
     }
     
     @IBAction func playPauseButtonWasPressed(_ sender: UIButton) {
-        playPauseButton.isSelected.toggle()
-        audioPlayer.isPlaying = !playPauseButton.isSelected
+        audioPlayer.isPlaying = !audioPlayer.isPlaying
     }
     
     @IBAction func rewindButtonWasPressed(_ sender: Any) {
@@ -102,5 +107,29 @@ extension GameViewController: CardParent {
     func cardAnimatorWillPresentCard(_ cardAnimator: CardAnimator, withAnimationParameters animationParameters: inout SpringAnimationContext) {
         cardAnimator.pullTabEnabled = true
         cardAnimator.cornerRadius = 16
+    }
+}
+
+extension GameViewController: SearchViewControllerDelegate {
+    func didGuess(hasMoreGuesses: Bool) {
+        if !hasMoreGuesses {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "game_over_controller") as! GameOverViewController
+            present(controller, animated: true)
+        }
+        
+        let game = MUSGame.current
+        audioPlayer.playbackDeadline = game.currentPreviewDuration
+        timeSlider.mediaDuration = MUSGame.current.currentPreviewDuration
+        guessCountLabel.text = "\(game.currentGuessCount)/\(Constants.allowedNumberOfGuesses)"
+        previewDurationLabel.text = "0:\(Int(game.currentPreviewDuration))"
+    }
+}
+
+extension GameViewController: MUSAudioPlayerDelegate {
+    func didUpdateIsPlaying(isPlaying: Bool) {
+        DispatchQueue.main.async {
+            self.playPauseButton.isSelected = !isPlaying
+        }
     }
 }

@@ -86,7 +86,16 @@ class MUSGame {
         UserDefaults.standard.set(_currentGuessCount, forKey: "guess_count")
     }
     
-    func didGuessIncorrectly() -> Bool {
+    func didGuess(song: MUSSong) -> Bool {
+        if song.id == dailySong?.id {
+            didGuessCorrectly()
+            return false
+        } else {
+            return didGuessIncorrectly()
+        }
+    }
+    
+    private func didGuessIncorrectly() -> Bool {
         guard _gameState == .playing else { return false }
         
         _currentGuessCount += 1
@@ -98,7 +107,7 @@ class MUSGame {
         return false
     }
     
-    func didGuessCorrectly() {
+    private func didGuessCorrectly() {
         guard _gameState == .playing else { return }
         
         if _currentGuessCount >= Constants.allowedNumberOfGuesses { _ = didGuessIncorrectly() }
