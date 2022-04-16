@@ -9,13 +9,19 @@ import UIKit
 
 class GameOverViewController: UIViewController {
 
+    // Top bubble outlet
     @IBOutlet weak var correctLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var CoverImageView: UIImageView!
-    @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var guessText: UILabel!
     @IBOutlet weak var shareButton: UIButton!
+    
+    // Statistics Outlets
+    @IBOutlet weak var statisticsPlayedLabel: UILabel!
+    @IBOutlet weak var statisticsWinPercentLabel: UILabel!
+    @IBOutlet weak var statisticsCurrentStreakLabel: UILabel!
+    @IBOutlet weak var statisticsMaxStreakLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +38,6 @@ class GameOverViewController: UIViewController {
         
         // Configuring Info Card
         guard let dailySong = MUSGame.current.dailySong else { return }
-        
-        
         artistNameLabel.text = "\(dailySong.artist) • \(dailySong.album)"
         songNameLabel.text = dailySong.title
         dailySong.albumArt.getArtwork { image in
@@ -41,13 +45,14 @@ class GameOverViewController: UIViewController {
         }
         
         
+        // Configuring statistics
+        let stats = MUSGame.current.statistics
         
-        let defaults = UserDefaults()
-        var newPoints = defaults.integer(forKey: "points")
-        print("Setting new points to", newPoints)
-        newPoints = newPoints + 1 //TODO make this update points properly 
-        defaults.set(newPoints, forKey: "points")
-        defaults.set(Date(), forKey: "dateLastPlayed")
+        let percentWin = Float(stats.totalWinCount) / Float(stats.totalGameCount)
+        statisticsPlayedLabel.text = "\(stats.totalGameCount)"
+        statisticsWinPercentLabel.text = "\(percentWin.rounded())"
+        statisticsCurrentStreakLabel.text = "\(stats.currentWinStreak)"
+        statisticsMaxStreakLabel.text = "\(stats.maxWinStreak)"
     }
     
     func configureViewWithCorrectInfo(correct: Bool, guessCount: Int) {
