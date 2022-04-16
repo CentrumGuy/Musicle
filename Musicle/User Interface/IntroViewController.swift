@@ -11,7 +11,6 @@ class IntroViewController: UIViewController {
 
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var onboardingTextLabel: UILabel!
-    @IBOutlet weak var pointsStack: UIStackView!
     
     
     override func viewDidLoad() {
