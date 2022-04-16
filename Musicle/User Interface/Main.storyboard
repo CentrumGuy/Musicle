@@ -572,6 +572,10 @@
                         <outlet property="guessText" destination="Opk-LV-uj9" id="N2n-Xj-GPB"/>
                         <outlet property="shareButton" destination="v6V-C8-RTD" id="fZD-qC-uOJ"/>
                         <outlet property="songNameLabel" destination="gea-FC-jt6" id="6Tm-uj-bsO"/>
+                        <outlet property="statisticsCurrentStreakLabel" destination="dAB-OL-9ft" id="bvA-Y7-kLL"/>
+                        <outlet property="statisticsMaxStreakLabel" destination="fgE-PR-ozQ" id="QQ7-Lx-sMx"/>
+                        <outlet property="statisticsPlayedLabel" destination="pQh-CO-8jD" id="HGE-KR-XdQ"/>
+                        <outlet property="statisticsWinPercentLabel" destination="Y4h-HR-hDc" id="oyp-Y9-gkc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jed-22-CKw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
