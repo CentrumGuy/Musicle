@@ -48,7 +48,7 @@ class GameOverViewController: UIViewController {
         // Configuring statistics
         let stats = MUSGame.current.statistics
         
-        let percentWin = Float(stats.totalWinCount) / Float(stats.totalGameCount)
+        let percentWin = Float(stats.totalWinCount) / Float(stats.totalGameCount) * 100
         statisticsPlayedLabel.text = "\(stats.totalGameCount)"
         statisticsWinPercentLabel.text = "\(percentWin.rounded())"
         statisticsCurrentStreakLabel.text = "\(stats.currentWinStreak)"
