@@ -16,35 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        MUSSpotifyAPI.shared.generateToken(clientID: "bc1a9db6ac2246ffb4d6ba5b8e52014c", clientSecret: "9485c02a32224359b3e4f047b33c27e3") {}
-        
-        let defaults = UserDefaults()
-        
-        MUSGame.current.totalPoints = defaults.integer(forKey: "points")
-        
-        let testingMode = true // CHANGE THIS IF YOU WANT TESTING OR NOT
-        
-        if testingMode {
-            MUSGame.current.canPlayToday = true
-        } else {
-            var dateLastPlayed:Date
-            if defaults.object(forKey: "dateLastPlayed") == nil {
-                dateLastPlayed = Date(timeIntervalSince1970: 5)
-            } else {
-                dateLastPlayed = defaults.object(forKey: "dateLastPlayed") as! Date
-            }
-            
-            dateLastPlayed = Calendar.current.startOfDay(for: dateLastPlayed)
-            let today = Calendar.current.startOfDay(for: Date())
-            if dateLastPlayed == today {
-                MUSGame.current.canPlayToday = false
-            } else {
-                MUSGame.current.canPlayToday = true
-            }
-        }
-        
-        
-        
+        MUSSpotifyAPI.shared.generateToken(clientID: "bc1a9db6ac2246ffb4d6ba5b8e52014c", clientSecret: "9485c02a32224359b3e4f047b33c27e3") {}        
         return true
     }
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		203FDE9927FF95480093C36F /* MUSRemoteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203FDE9827FF95480093C36F /* MUSRemoteHandler.swift */; };
 		2084A2442808E3ED0021EE67 /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084A2432808E3EC0021EE67 /* TimeSlider.swift */; };
 		20BAB5632807A8AB00E92702 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 20BAB5622807A8AB00E92702 /* FirebaseAnalytics */; };
 		20BAB5652807A8AB00E92702 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 20BAB5642807A8AB00E92702 /* FirebaseAnalyticsSwift-Beta */; };
@@ -52,6 +51,8 @@
 		C74D890327BEEDBE0078690E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C74D890227BEEDBE0078690E /* GoogleService-Info.plist */; };
 		C7629A312808C8DF003ACA38 /* MUSAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7629A302808C8DF003ACA38 /* MUSAudioPlayer.swift */; };
 		C76FF1B627E42F74001AD504 /* Midnight (Kygo Remix).m4a in Resources */ = {isa = PBXBuildFile; fileRef = C76FF1B527E42F74001AD504 /* Midnight (Kygo Remix).m4a */; };
+		C7A41BA0280B1B4E0055DBEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A41B9F280B1B4E0055DBEC /* Constants.swift */; };
+		C7A41BA2280B1D640055DBEC /* MUSStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A41BA1280B1D640055DBEC /* MUSStatistics.swift */; };
 		C7EA997027E1727300A0A6D1 /* MUSSpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */; };
 		C7EEAD7C27BEEC3E007A7E50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */; };
 		C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */; };
@@ -65,7 +66,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		203FDE9827FF95480093C36F /* MUSRemoteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSRemoteHandler.swift; sourceTree = "<group>"; };
 		2084A2432808E3EC0021EE67 /* TimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSlider.swift; path = "UI Elements/TimeSlider.swift"; sourceTree = "<group>"; };
 		9B69DC9927F630E400B6DE36 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		9BA49E7727F3DCC400E55FA7 /* MUSGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSGame.swift; sourceTree = "<group>"; };
@@ -80,6 +80,8 @@
 		C74D890227BEEDBE0078690E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7629A302808C8DF003ACA38 /* MUSAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSAudioPlayer.swift; sourceTree = "<group>"; };
 		C76FF1B527E42F74001AD504 /* Midnight (Kygo Remix).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Midnight (Kygo Remix).m4a"; sourceTree = "<group>"; };
+		C7A41B9F280B1B4E0055DBEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C7A41BA1280B1D640055DBEC /* MUSStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSStatistics.swift; sourceTree = "<group>"; };
 		C7EA996E27E1727300A0A6D1 /* MUSSpotifyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSpotifyAPI.swift; path = "Musicle/Spotify API/MUSSpotifyAPI.swift"; sourceTree = SOURCE_ROOT; };
 		C7EA996F27E1727300A0A6D1 /* MUSSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUSSong.swift; path = "Musicle/Data Types/MUSSong.swift"; sourceTree = SOURCE_ROOT; };
 		C7EEAD7827BEEC3E007A7E50 /* Musicle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,14 +137,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		203FDE9A27FF956D0093C36F /* FireBase */ = {
-			isa = PBXGroup;
-			children = (
-				203FDE9827FF95480093C36F /* MUSRemoteHandler.swift */,
-			);
-			path = FireBase;
-			sourceTree = "<group>";
-		};
 		C70B134A27E42CF600ED23EB /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +168,7 @@
 				F28ED6E027FCFEB3007DD838 /* MUSArtwork.swift */,
 				C7629A302808C8DF003ACA38 /* MUSAudioPlayer.swift */,
 				9BA49E7727F3DCC400E55FA7 /* MUSGame.swift */,
+				C7A41BA1280B1D640055DBEC /* MUSStatistics.swift */,
 			);
 			path = "Data Types";
 			sourceTree = "<group>";
@@ -209,8 +204,8 @@
 			children = (
 				C7EEAD7B27BEEC3E007A7E50 /* AppDelegate.swift */,
 				C7EEAD7D27BEEC3E007A7E50 /* SceneDelegate.swift */,
+				C7A41B9F280B1B4E0055DBEC /* Constants.swift */,
 				F29EF8A827E3E9F0008BD3D0 /* Utils */,
-				203FDE9A27FF956D0093C36F /* FireBase */,
 				C7EA997327E1729400A0A6D1 /* Spotify API */,
 				C7EA997227E1727600A0A6D1 /* Data Types */,
 				C70B134A27E42CF600ED23EB /* User Interface */,
@@ -361,17 +356,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C70B135427E42D0D00ED23EB /* IntroViewController.swift in Sources */,
+				C7A41BA0280B1B4E0055DBEC /* Constants.swift in Sources */,
 				C70B135127E42D0D00ED23EB /* SearchViewController.swift in Sources */,
 				C70B135927E42D7800ED23EB /* SwiftSiriWaveformView.swift in Sources */,
 				C7EEAD7C27BEEC3E007A7E50 /* AppDelegate.swift in Sources */,
 				F29EF8A927E3EA08008BD3D0 /* MUSSong.swift in Sources */,
+				C7A41BA2280B1D640055DBEC /* MUSStatistics.swift in Sources */,
 				C70B135227E42D0D00ED23EB /* SongTableViewCell.swift in Sources */,
 				9BA49E7827F3DCC400E55FA7 /* MUSGame.swift in Sources */,
 				F28ED6E127FCFEB3007DD838 /* MUSArtwork.swift in Sources */,
 				C70B135327E42D0D00ED23EB /* GameViewController.swift in Sources */,
 				9B69DC9A27F630E400B6DE36 /* GameOverViewController.swift in Sources */,
 				F25482A827DDA68F00988BF2 /* JSTools.swift in Sources */,
-				203FDE9927FF95480093C36F /* MUSRemoteHandler.swift in Sources */,
 				C7EEAD7E27BEEC3E007A7E50 /* SceneDelegate.swift in Sources */,
 				2084A2442808E3ED0021EE67 /* TimeSlider.swift in Sources */,
 				C7629A312808C8DF003ACA38 /* MUSAudioPlayer.swift in Sources */,

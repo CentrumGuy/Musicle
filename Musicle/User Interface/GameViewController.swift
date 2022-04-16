@@ -24,7 +24,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingView.startAnimating()
-        MUSRemoteHandler.shared.getDailySong { [weak this = self] dailySong in
+        MUSGame.current.getDailySong { [weak this = self] dailySong in
             this?.audioPlayer.setSong(dailySong) { _ in
                 guard let this = this else { return }
                 let player = this.audioPlayer

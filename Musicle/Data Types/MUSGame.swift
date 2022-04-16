@@ -6,39 +6,37 @@
 //
 
 import Foundation
-// Static global class to record data like today's song ID as well as what song the user has chosen, this is needed to allow the SearchViewController and GameViewController to communicate
+import FirebaseFirestore
+
+enum MUSGameState: Int {
+    case playing, win, lose
+}
+
 class MUSGame {
-    
     static let current = MUSGame()
-    private init () {}
     
-    var dailySong: MUSSong?
-    var canPlayToday: Bool?
-    var totalPoints: Int?
+    private let database = Firestore.firestore()
+    private var _dailySong: MUSSong?
     
-    var guessCount = 0
-    
-    func didGuess() {
-        guessCount += 1
+    private var _gameState: MUSGameState {
+        didSet { UserDefaults.standard.set(_gameState, forKey: "game_state") }
     }
     
-    private func pointsFromGuessCount() -> Int {
-        let dailyPoints: Int
-        switch guessCount {
-        case 1: dailyPoints = 10
-        case 2: dailyPoints = 8
-        case 3: dailyPoints = 6
-        case 4: dailyPoints = 4
-        case 5: dailyPoints = 2
-        default: dailyPoints = 0
-        }
-        
-        return dailyPoints
+    private var _statistics: MUSStatistics {
+        didSet { saveStatistics() }
     }
     
-    private func previewDuration(forGuess guess: Int) -> TimeInterval {
-        var time: TimeInterval
-        switch guess {
+    private var _currentGuessCount: Int {
+        didSet { UserDefaults.standard.set(_currentGuessCount, forKey: "guess_count") }
+    }
+    
+    var dailySong: MUSSong? { _dailySong }
+    var statistics: MUSStatistics { _statistics }
+    var canPlay: Bool { _gameState == .playing }
+    
+    var currentPreviewDuration: TimeInterval {
+        let time: TimeInterval
+        switch _currentGuessCount {
         case 0: time = 2
         case 1: time = 5
         case 2: time = 8
@@ -49,6 +47,94 @@ class MUSGame {
         }
         
         return time
+    }
+    
+    private init () {
+        let uDefaults = UserDefaults.standard
+        
+        // Statistics
+        let decoder = JSONDecoder()
+        if let statisticsData = uDefaults.object(forKey: "statistics") as? Data, let statistics = try? decoder.decode(MUSStatistics.self, from: statisticsData) {
+            self._statistics = statistics
+        } else { self._statistics = MUSStatistics() }
+        
+        // Game State
+        let calendar = Calendar.current
+        if calendar.isDate(_statistics.dateBeganPlaying, inSameDayAs: Date()) {
+            _gameState = MUSGameState(rawValue: uDefaults.integer(forKey: "game_state")) ?? .playing
+            _currentGuessCount = uDefaults.integer(forKey: "current_guess_count")
+        } else {
+            if !calendar.isDateInYesterday(_statistics.dateBeganPlaying) { _statistics.currentWinStreak = 0 }
+            
+            _gameState = .playing
+            _currentGuessCount = 0
+            _statistics.dateBeganPlaying = Date()
+            saveAll()
+        }
+    }
+    
+    private func saveStatistics() {
+        let statisticsData = _statistics.toData()
+        UserDefaults.standard.set(statisticsData, forKey: "statistics")
+    }
+    
+    private func saveAll() {
+        saveStatistics()
+        UserDefaults.standard.set(_gameState, forKey: "game_state")
+        UserDefaults.standard.set(_currentGuessCount, forKey: "guess_count")
+    }
+    
+    func didGuessIncorrectly() -> Bool {
+        guard _gameState == .playing else { return false }
+        
+        _currentGuessCount += 1
+        if _currentGuessCount < Constants.allowedNumberOfGuesses { return true }
+        
+        _gameState = .lose
+        _statistics.totalGameCount += 1
+        _statistics.currentWinStreak = 0
+        return false
+    }
+    
+    func didGuessCorrectly() {
+        guard _gameState == .playing else { return }
+        
+        if _currentGuessCount >= Constants.allowedNumberOfGuesses { _ = didGuessIncorrectly() }
+        _currentGuessCount += 1
+        _gameState = .win
+        _statistics.totalGameCount += 1
+        _statistics.totalWinCount += 1
+        _statistics.currentWinStreak += 1
+        _statistics.guessDistribution[_currentGuessCount] += 1
+    }
+    
+    func getDailySong(completion: @escaping (MUSSong?) -> ()) {
+        if let dailySong = self._dailySong {
+            completion(dailySong)
+            return
+        }
+        
+        let docRef = database.document("main/daily_tracks")
+        docRef.getDocument { (document, error) in
+            guard let document = document, document.exists, let data = document.data() else {
+                completion(nil)
+                return
+            }
+            
+            let calendar = Calendar.current
+            let fromComponents = DateComponents(calendar: nil, timeZone: nil, era: nil, year: 2000, month: 1, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil)
+            let fromDate = calendar.date(from: fromComponents)
+            let currentDate = Date()
+            let numberOfDays = calendar.dateComponents([.day], from: fromDate!, to: currentDate)
+            
+            let tracks = data["tracks"] as! [String]
+            let trackID = tracks[(numberOfDays.day ?? 0) % tracks.count]
+            
+            MUSSpotifyAPI.shared.getSong(songID: trackID) { song in
+                self._dailySong = song
+                completion(song)
+            }
+        }
     }
     
 }

@@ -59,7 +59,7 @@ class GameOverViewController: UIViewController {
         } else {
             correctLabel.text = "Incorrect..."
         }
-        pointsLabel.text = String(MUSGame.current.totalPoints!)
+        pointsLabel.text = String(0)
         if guessCount > 5 {
             guessText.text = "After \(guessCount) guesses, you were still unable to guess today's song... Come back tomorrow and try again!"
         } else {
