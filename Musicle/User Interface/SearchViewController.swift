@@ -52,6 +52,9 @@ class SearchViewController: UIViewController {
         })
     }
     
+    @IBAction func textFieldWasTapped(_ sender: Any) {
+        
+    }
 }
 
 
@@ -92,7 +95,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             secondController.configureViewWithCorrectInfo(correct: false, guessCount: numGuesses)
             self.navigationController?.pushViewController(secondController, animated: true)
         } else {
-            var alert = UIAlertController( title: "Guess again", message: "You have already played today! Come back tomorrow", preferredStyle: .alert)
+            let alert = UIAlertController( title: "Guess again", message: "", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                  print("Ok button tapped")
               })
