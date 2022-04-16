@@ -69,6 +69,9 @@ class SearchViewController: UIViewController {
         
     }
     
+    @IBAction func textFieldWasTapped(_ sender: Any) {
+        
+    }
 }
 
 

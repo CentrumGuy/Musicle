@@ -309,6 +309,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                         <connections>
                                             <action selector="textFieldWasChanged:" destination="dOD-d2-QJT" eventType="valueChanged" id="1NV-6n-xF5"/>
+                                            <action selector="textFieldWasTapped:" destination="dOD-d2-QJT" eventType="touchUpInside" id="N07-oB-chb"/>
                                         </connections>
                                     </textField>
                                 </subviews>
