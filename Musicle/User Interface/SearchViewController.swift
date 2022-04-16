@@ -8,9 +8,14 @@
 import UIKit
 import Card
 
+protocol SearchViewControllerDelegate: AnyObject {
+    func didGuess(hasMoreGuesses: Bool)
+}
+
 class SearchViewController: UIViewController {
     
     var cardAnimator: CardAnimator?
+    weak var delegate: SearchViewControllerDelegate?
     
     private var songs:[MUSSong] = []
     
@@ -66,26 +71,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     // Function after a user has selected a specific cell in the tableView. Will match with
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSong = songs[indexPath.row]
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let secondController = storyboard.instantiateViewController(withIdentifier: "game_over_controller") as! GameOverViewController
-        let currentGame = MUSGame.current
         
-        secondController.loadViewIfNeeded()
-        if selectedSong.id == currentGame.dailySong?.id {
-            secondController.configureViewWithCorrectInfo(correct: true, guessCount: currentGame.currentGuessCount)
-            self.navigationController?.pushViewController(secondController, animated: true)
-        } else if currentGame.currentGuessCount > 5 {
-            secondController.configureViewWithCorrectInfo(correct: false, guessCount: currentGame.currentGuessCount)
-            self.navigationController?.pushViewController(secondController, animated: true)
-        } else {
-            let alert = UIAlertController( title: "Guess again", message: "", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                 print("Ok button tapped")
-              })
-            alert.addAction(ok)
-            
-            self.present(alert, animated: true, completion: nil)
-        }
+        let hasMoreGuesses = MUSGame.current.didGuess(song: selectedSong)
+        cardAnimator?.setOffset(cardAnimator!.stickyOffsets[0], animated: true)
+        delegate?.didGuess(hasMoreGuesses: hasMoreGuesses)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
