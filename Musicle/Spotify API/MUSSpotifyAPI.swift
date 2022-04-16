@@ -12,6 +12,7 @@ class MUSSpotifyAPI {
     static let shared = MUSSpotifyAPI()
     
     private var token: String?
+    private var tokenCompletions = [() -> ()]()
     
     private init() {}
     
@@ -30,20 +31,27 @@ class MUSSpotifyAPI {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpBody = parameters.data(using: .utf8)
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { [weak this = self] data, response, error in
             guard let data = data,
                   let readableJSON = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any],
                   let token = readableJSON["access_token"] as? String else { return }
             
             self.token = token
             completion()
+            this?.tokenCompletions.forEach { $0() }
+            this?.tokenCompletions = []
         }
         
         task.resume()
     }
     
     func searchCatalog(searchQuery: String, completion: @escaping ([MUSSong]?) -> ()) {
-        guard let formattedSearchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .alphanumerics), let token = token else {
+        guard let token = token else {
+            tokenCompletions.append { [weak this = self] in this?.searchCatalog(searchQuery: searchQuery, completion: completion) }
+            return
+        }
+        
+        guard let formattedSearchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .alphanumerics) else {
             completion(nil)
             return
         }
@@ -100,7 +108,7 @@ class MUSSpotifyAPI {
     
     func getSong(songID: String, completion: @escaping (MUSSong?) -> ()) {
         guard let token = token else {
-            completion(nil)
+            tokenCompletions.append { [weak this = self] in this?.getSong(songID: songID, completion: completion) }
             return
         }
 

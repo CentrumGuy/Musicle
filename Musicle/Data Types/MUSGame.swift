@@ -16,6 +16,9 @@ class MUSGame {
     static let current = MUSGame()
     
     private let database = Firestore.firestore()
+    private var dailySongCompletions = [() -> ()]()
+    private var loadingDailySong = false
+    
     private var _dailySong: MUSSong?
     
     private var _gameState: MUSGameState {
@@ -123,8 +126,12 @@ class MUSGame {
         if let dailySong = self._dailySong {
             completion(dailySong)
             return
+        } else if loadingDailySong {
+            dailySongCompletions.append { [weak this = self] in completion(this?._dailySong) }
+            return
         }
         
+        loadingDailySong = true
         let docRef = database.document("main/daily_tracks")
         docRef.getDocument { (document, error) in
             guard let document = document, document.exists, let data = document.data() else {
@@ -144,6 +151,10 @@ class MUSGame {
             MUSSpotifyAPI.shared.getSong(songID: trackID) { song in
                 self._dailySong = song
                 completion(song)
+                
+                self.dailySongCompletions.forEach { $0() }
+                self.dailySongCompletions = []
+                self.loadingDailySong = false
             }
         }
     }
