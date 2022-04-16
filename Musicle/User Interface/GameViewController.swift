@@ -122,7 +122,7 @@ extension GameViewController: SearchViewControllerDelegate {
         audioPlayer.playbackDeadline = game.currentPreviewDuration
         timeSlider.mediaDuration = MUSGame.current.currentPreviewDuration
         guessCountLabel.text = "\(game.currentGuessCount)/\(Constants.allowedNumberOfGuesses)"
-        previewDurationLabel.text = "0:\(Int(game.currentPreviewDuration))"
+        previewDurationLabel.text = "0:" + String(format: "%0.2d", Int(MUSGame.current.currentPreviewDuration))
     }
 }
 
