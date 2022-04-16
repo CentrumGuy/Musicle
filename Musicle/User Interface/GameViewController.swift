@@ -21,6 +21,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
     private let audioPlayer = MUSAudioPlayer()
     private var displayLink: CADisplayLink?
     var cardAnimator: CardAnimator?
+    var averagePowerBefore: Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,10 +70,11 @@ class GameViewController: UIViewController, TimeSliderDelegate {
     }
 
     @objc func onScreenUpdate() {
-        let beforeAverage = audioPlayer.getPower(shouldUpdate: false)
-        let average = audioPlayer.getPower(shouldUpdate: true)
-        let power = 0.4 * pow(10, beforeAverage/20) + 0.6 * pow(10, average/20)
+        let average: Float = audioPlayer.isPlaying ? 1 : 0
+        let weight: Float = 0.9
+        let power = weight*averagePowerBefore + (1-weight)*average
         waveView.amplitude = CGFloat(power)
+        averagePowerBefore = power
         
         let currentTime = audioPlayer.currentTime
         let progress = currentTime/MUSGame.current.currentPreviewDuration

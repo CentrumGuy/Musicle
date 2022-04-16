@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1005596359211-vd0apchv7j3o985fdhjuk41k7ldam24n.apps.googleusercontent.com</string>
+	<string>1005596359211-05923k7q6i7oush2bcgur645bpiuq874.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1005596359211-vd0apchv7j3o985fdhjuk41k7ldam24n</string>
+	<string>com.googleusercontent.apps.1005596359211-05923k7q6i7oush2bcgur645bpiuq874</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCfgYOogL1AqSAquvqplyhHQSBpGKy45dU</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.spectre.Musicle</string>
+	<string>com.spectre.musicle</string>
 	<key>PROJECT_ID</key>
 	<string>musicle-29fd2</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1005596359211:ios:fee5516bcddf850c4f086e</string>
+	<string>1:1005596359211:ios:4ef0de2dbcd74d1b4f086e</string>
 </dict>
 </plist>
