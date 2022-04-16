@@ -277,11 +277,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jac-dR-Fd4">
                                 <rect key="frame" x="16" y="76" width="343" height="42"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guess the Song" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-Gu-PFT">
-                                        <rect key="frame" x="8" y="4" width="327" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guess the song..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-Gu-PFT">
+                                        <rect key="frame" x="24.666666666666657" y="4" width="310.33333333333337" height="34"/>
+                                        <color key="tintColor" systemColor="tintColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="WVY-9T-mlm"/>
                                         </constraints>
+                                        <color key="textColor" white="0.0" alpha="0.2038277127" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                         <connections>
@@ -289,13 +291,23 @@
                                             <action selector="textFieldWasTapped:" destination="dOD-d2-QJT" eventType="touchUpInside" id="N07-oB-chb"/>
                                         </connections>
                                     </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1wy-A6-rp4">
+                                        <rect key="frame" x="6" y="13.66666666666667" width="16.666666666666668" height="15.000000000000002"/>
+                                        <color key="tintColor" white="0.0" alpha="0.20382771270954056" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1wy-A6-rp4" secondAttribute="height" id="4CW-2T-dzm"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                <color key="backgroundColor" red="0.28533511069549561" green="0.33324170425009964" blue="0.41503482394748259" alpha="0.16024376067104718" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="yrj-Gu-PFT" firstAttribute="centerY" secondItem="jac-dR-Fd4" secondAttribute="centerY" id="2PJ-h7-nnT"/>
-                                    <constraint firstItem="yrj-Gu-PFT" firstAttribute="centerX" secondItem="jac-dR-Fd4" secondAttribute="centerX" id="IJU-bI-6u2"/>
+                                    <constraint firstItem="1wy-A6-rp4" firstAttribute="baseline" secondItem="yrj-Gu-PFT" secondAttribute="firstBaseline" id="72z-CY-WGF"/>
+                                    <constraint firstItem="1wy-A6-rp4" firstAttribute="leading" secondItem="jac-dR-Fd4" secondAttribute="leading" constant="6" id="BZE-rp-S0r"/>
+                                    <constraint firstAttribute="trailing" secondItem="yrj-Gu-PFT" secondAttribute="trailing" constant="8" id="DjT-bE-2G7"/>
                                     <constraint firstItem="yrj-Gu-PFT" firstAttribute="top" secondItem="jac-dR-Fd4" secondAttribute="top" constant="4" id="XGx-r0-VX8"/>
-                                    <constraint firstItem="yrj-Gu-PFT" firstAttribute="leading" secondItem="jac-dR-Fd4" secondAttribute="leading" constant="8" id="hrD-bU-N62"/>
+                                    <constraint firstItem="yrj-Gu-PFT" firstAttribute="leading" secondItem="1wy-A6-rp4" secondAttribute="trailing" constant="2" id="bZW-RO-7ta"/>
+                                    <constraint firstItem="1wy-A6-rp4" firstAttribute="centerY" secondItem="yrj-Gu-PFT" secondAttribute="centerY" id="hol-WI-POx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -311,6 +323,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J4M-03-aum"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="tintColor"/>
                         <constraints>
                             <constraint firstItem="yds-2H-Udt" firstAttribute="top" secondItem="jac-dR-Fd4" secondAttribute="bottom" constant="16" id="0wH-YZ-GGs"/>
                             <constraint firstAttribute="trailing" secondItem="yds-2H-Udt" secondAttribute="trailing" id="An2-Ti-XM1"/>
@@ -328,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFW-rl-c3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102.8985507246377" y="880.58035714285711"/>
+            <point key="canvasLocation" x="1101.5999999999999" y="880.04926108374389"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W6h-no-OXq">
@@ -645,6 +658,7 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="arrow.uturn.backward.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -655,9 +669,6 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -666,6 +677,9 @@
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

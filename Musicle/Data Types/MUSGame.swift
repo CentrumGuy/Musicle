@@ -62,7 +62,7 @@ class MUSGame {
         
         // Game State
         let calendar = Calendar.current
-        if calendar.isDate(_statistics.dateBeganPlaying, inSameDayAs: Date()) {
+        if !Constants.debugMode && calendar.isDate(_statistics.dateBeganPlaying, inSameDayAs: Date()) {
             _gameState = MUSGameState(rawValue: uDefaults.integer(forKey: "game_state")) ?? .playing
             _currentGuessCount = uDefaults.integer(forKey: "current_guess_count")
         } else {
