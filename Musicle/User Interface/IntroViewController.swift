@@ -41,7 +41,7 @@ class IntroViewController: UIViewController {
             self.navigationController?.pushViewController(secondController, animated: true)
         } else {
             // Display alert that user has already played today.
-            var alert = UIAlertController(title: "Cannot play today's game", message: "You have already played today! Come back tomorrow", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Cannot play today's game", message: "You have already played today! Come back tomorrow", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                  print("Ok button tapped")
               })

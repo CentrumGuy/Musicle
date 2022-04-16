@@ -39,19 +39,7 @@ class GameOverViewController: UIViewController {
         dailySong.albumArt.getArtwork { image in
             self.CoverImageView.image = image
         }
-        
-        
-        
-        let defaults = UserDefaults()
-        var newPoints = defaults.integer(forKey: "points")
-        newPoints = newPoints + 1
-        defaults.set(newPoints, forKey: "points")
-        defaults.set(Date(), forKey: "dateLastPlayed")
     }
-    
-//    @IBAction func closeButtonWasTapped(_ sender: Any) {
-//        self.navigationController?.popToRootViewController(animated: true)
-//    }
     
     func configureViewWithCorrectInfo(correct: Bool, guessCount: Int) {
         if correct {

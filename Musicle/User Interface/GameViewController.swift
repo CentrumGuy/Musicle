@@ -23,7 +23,10 @@ class GameViewController: UIViewController, TimeSliderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        waveView.isHidden = true
         loadingView.startAnimating()
+        
         MUSGame.current.getDailySong { [weak this = self] dailySong in
             this?.audioPlayer.setSong(dailySong) { _ in
                 guard let this = this else { return }
@@ -32,6 +35,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
                 player.isPlaying = true
                 DispatchQueue.main.async {
                     self.loadingView.stopAnimating()
+                    self.waveView.isHidden = false
                 }
             }
         }

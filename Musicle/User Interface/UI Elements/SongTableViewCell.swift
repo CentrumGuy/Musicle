@@ -9,23 +9,26 @@ import UIKit
 
 class SongTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var albumCover: UIImageView!
+    @IBOutlet private weak var albumCover: UIImageView!
+    @IBOutlet private weak var songTitleLabel: UILabel!
+    @IBOutlet private weak var artistTitleAlbum: UILabel!
     
-    @IBOutlet weak var songTitleLabel: UILabel!
-    @IBOutlet weak var artistTitleAlbum: UILabel!
-    
+    var song: MUSSong? {
+        didSet {
+            guard let song = song else { return }
+            songTitleLabel.text = song.title
+            artistTitleAlbum.text = "\(song.artist) • \(song.album)"
+            song.albumArt.getArtwork { [weak oldSong = song, weak this = self] artworkImg in
+                guard oldSong?.id == this?.song?.id else { return }
+                this?.albumCover.image = artworkImg
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         albumCover.clipsToBounds = true
         albumCover.layer.cornerRadius = 8
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

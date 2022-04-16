@@ -19,7 +19,7 @@ class MUSGame {
     private var _dailySong: MUSSong?
     
     private var _gameState: MUSGameState {
-        didSet { UserDefaults.standard.set(_gameState, forKey: "game_state") }
+        didSet { UserDefaults.standard.set(_gameState.rawValue, forKey: "game_state") }
     }
     
     private var _statistics: MUSStatistics {
@@ -80,7 +80,7 @@ class MUSGame {
     
     private func saveAll() {
         saveStatistics()
-        UserDefaults.standard.set(_gameState, forKey: "game_state")
+        UserDefaults.standard.set(_gameState.rawValue, forKey: "game_state")
         UserDefaults.standard.set(_currentGuessCount, forKey: "guess_count")
     }
     

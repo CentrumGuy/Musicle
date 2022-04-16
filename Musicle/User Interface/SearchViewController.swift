@@ -12,15 +12,10 @@ class SearchViewController: UIViewController {
     
     var cardAnimator: CardAnimator?
     
-    @IBOutlet weak var tableView: UITableView!
-    var songs:[MUSSong] = []
+    private var songs:[MUSSong] = []
     
-    
-    @IBOutlet weak var songsTable: UITableView!
-    @IBOutlet weak var songInputTextField: UITextField!
-    var numGuesses = 0
-    
-    
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var songInputTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,20 +25,19 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
-        // Do any additional setup after loading the view.
+        
         // Messing with the card styling
         cardAnimator?.pullTabEnabled = true
         cardAnimator?.cornerRadius = 16
         cardAnimator?.shouldHandleScrollViews = true
         
-        songInputTextField.isEnabled = true
-        self.songInputTextField.delegate = self
+        songInputTextField.delegate = self
     }
     
     func search() {
-        let newSongSearchString = songInputTextField.text
+        let newSongSearchString = songInputTextField.text!
         
-        MUSSpotifyAPI.shared.searchCatalog(searchQuery: newSongSearchString!, completion: { queriedSongs in
+        MUSSpotifyAPI.shared.searchCatalog(searchQuery: newSongSearchString, completion: { queriedSongs in
             guard let queriedSongs = queriedSongs else { return }
             self.songs = queriedSongs
             DispatchQueue.main.async {
@@ -60,22 +54,12 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { songs.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongTableViewCell", for: indexPath) as! SongTableViewCell
         let currentSong = songs[indexPath.row]
-        
-        // Configuring cell
-        cell.songTitleLabel.text = currentSong.title
-        print(currentSong.id)
-        currentSong.albumArt.getArtwork { image in
-            cell.albumCover.image = image // Can there be a field for the song's album art cover
-        }
-        
-        cell.artistTitleAlbum.text = currentSong.artist + " / " + currentSong.album
+        cell.song = currentSong
         return cell
     }
     
@@ -85,7 +69,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondController = storyboard.instantiateViewController(withIdentifier: "game_over_controller") as! GameOverViewController
         
-        numGuesses = numGuesses + 1
+        let numGuesses = 1
         print("guessed")
         secondController.loadViewIfNeeded()
         if selectedSong.id == MUSGame.current.dailySong?.id {
