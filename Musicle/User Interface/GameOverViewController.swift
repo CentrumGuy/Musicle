@@ -43,10 +43,6 @@ class GameOverViewController: UIViewController {
         
         
         let defaults = UserDefaults()
-        var newPoints = defaults.integer(forKey: "points")
-        print("Setting new points to", newPoints)
-        newPoints = newPoints + 1 //TODO make this update points properly 
-        defaults.set(newPoints, forKey: "points")
         defaults.set(Date(), forKey: "dateLastPlayed")
     }
     
