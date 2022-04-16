@@ -8,6 +8,10 @@
 import UIKit
 
 class IntroViewController: UIViewController {
+
+    @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var onboardingTextLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
