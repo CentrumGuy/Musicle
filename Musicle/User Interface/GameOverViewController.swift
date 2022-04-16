@@ -64,7 +64,13 @@ class GameOverViewController: UIViewController {
         }
     }
     func bragToFriends() {
-        let items = ["Yo, I just guessed today's song on Musicle. Check it out!"]
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        
+        let items = ["Musicle \(dateFormatter.string(from: date)) Guessed in /6"]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
     }
