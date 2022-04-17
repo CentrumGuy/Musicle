@@ -30,7 +30,7 @@ class MUSGame {
     }
     
     private var _currentGuessCount: Int {
-        didSet { UserDefaults.standard.set(_currentGuessCount, forKey: "guess_count") }
+        didSet { UserDefaults.standard.set(_currentGuessCount, forKey: "current_guess_count") }
     }
     
     var dailySong: MUSSong? { _dailySong }
@@ -39,20 +39,7 @@ class MUSGame {
     var gameState: MUSGameState { _gameState }
     var currentGuessCount: Int { _currentGuessCount }
     
-    var currentPreviewDuration: TimeInterval {
-        let time: TimeInterval
-        switch _currentGuessCount {
-        case 0: time = 2
-        case 1: time = 5
-        case 2: time = 8
-        case 3: time = 11
-        case 4: time = 15
-        case 5: time = 20
-        default: time = 30
-        }
-        
-        return time
-    }
+    var currentPreviewDuration: TimeInterval { previewDuration(forGuessCount: _currentGuessCount) }
     
     private init () {
         let uDefaults = UserDefaults.standard
@@ -70,9 +57,10 @@ class MUSGame {
             _currentGuessCount = uDefaults.integer(forKey: "current_guess_count")
         } else {
             if !calendar.isDateInYesterday(_statistics.dateBeganPlaying) { _statistics.currentWinStreak = 0 }
+            let oldGameState = MUSGameState(rawValue: uDefaults.integer(forKey: "game_state")) ?? .playing
             
             _gameState = .playing
-            _currentGuessCount = 0
+            _currentGuessCount = Constants.debugMode && oldGameState == .playing ? uDefaults.integer(forKey: "current_guess_count") : 0
             _statistics.dateBeganPlaying = Date()
             saveAll()
         }
@@ -86,7 +74,7 @@ class MUSGame {
     private func saveAll() {
         saveStatistics()
         UserDefaults.standard.set(_gameState.rawValue, forKey: "game_state")
-        UserDefaults.standard.set(_currentGuessCount, forKey: "guess_count")
+        UserDefaults.standard.set(_currentGuessCount, forKey: "current_guess_count")
     }
     
     func didGuess(song: MUSSong) -> Bool {
@@ -139,14 +127,15 @@ class MUSGame {
                 return
             }
             
+            let tracks = data["tracks"] as! [String]
+            
             let calendar = Calendar.current
             let fromComponents = DateComponents(calendar: nil, timeZone: nil, era: nil, year: 2000, month: 1, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil)
             let fromDate = calendar.date(from: fromComponents)
             let currentDate = Date()
             let numberOfDays = calendar.dateComponents([.day], from: fromDate!, to: currentDate)
-            
-            let tracks = data["tracks"] as! [String]
-            let trackID = tracks[(numberOfDays.day ?? 0) % tracks.count]
+            let dayNumber = Constants.debugMode && Constants.debugRandomDailySong ? Int.random(in: 0 ..< tracks.count) : (numberOfDays.day ?? 0)
+            let trackID = tracks[dayNumber % tracks.count]
             
             MUSSpotifyAPI.shared.getSong(songID: trackID) { song in
                 self._dailySong = song
@@ -155,8 +144,27 @@ class MUSGame {
                 self.dailySongCompletions.forEach { $0() }
                 self.dailySongCompletions = []
                 self.loadingDailySong = false
+                
+                if let song = song {
+                    print("Today's song is \(song.title) with ID = \(trackID):\(song.id) and preview URL = \(song.previewURL)")
+                }
             }
         }
+    }
+    
+    func previewDuration(forGuessCount guessCount: Int) -> TimeInterval {
+        let time: TimeInterval
+        switch guessCount {
+        case 0: time = 2
+        case 1: time = 5
+        case 2: time = 8
+        case 3: time = 11
+        case 4: time = 15
+        case 5: time = 20
+        default: time = 30
+        }
+        
+        return time
     }
     
 }

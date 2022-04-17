@@ -17,6 +17,7 @@ class GameViewController: UIViewController, TimeSliderDelegate {
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var guessCountLabel: UILabel!
     @IBOutlet private weak var previewDurationLabel: UILabel!
+    @IBOutlet private weak var incorrectView: UIView!
     
     private let audioPlayer = MUSAudioPlayer()
     private var displayLink: CADisplayLink?
@@ -65,8 +66,11 @@ class GameViewController: UIViewController, TimeSliderDelegate {
         playPauseButton.setTitle("Play", for: .selected)
         playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .selected)
         
-        didGuess(hasMoreGuesses: true)
         didUpdateIsPlaying(isPlaying: audioPlayer.isPlaying)
+        updateStats()
+        
+        incorrectView.alpha = 0
+        incorrectView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
 
     @objc func onScreenUpdate() {
@@ -103,6 +107,14 @@ class GameViewController: UIViewController, TimeSliderDelegate {
         audioPlayer.rewind()
     }
     
+    private func updateStats() {
+        let game = MUSGame.current
+        audioPlayer.playbackDeadline = game.currentPreviewDuration
+        timeSlider.mediaDuration = MUSGame.current.currentPreviewDuration
+        guessCountLabel.text = "\(game.currentGuessCount)/\(Constants.allowedNumberOfGuesses)"
+        previewDurationLabel.text = "0:" + String(format: "%0.2d", Int(MUSGame.current.currentPreviewDuration))
+    }
+    
 }
 
 extension GameViewController: CardParent {
@@ -118,13 +130,20 @@ extension GameViewController: SearchViewControllerDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "game_over_controller") as! GameOverViewController
             present(controller, animated: true)
+            return
         }
         
-        let game = MUSGame.current
-        audioPlayer.playbackDeadline = game.currentPreviewDuration
-        timeSlider.mediaDuration = MUSGame.current.currentPreviewDuration
-        guessCountLabel.text = "\(game.currentGuessCount)/\(Constants.allowedNumberOfGuesses)"
-        previewDurationLabel.text = "0:" + String(format: "%0.2d", Int(MUSGame.current.currentPreviewDuration))
+        updateStats()
+        
+        UIView.animate(withDuration: 0.5, delay: 0.3, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .allowUserInteraction) {
+            self.incorrectView.alpha = 1
+            self.incorrectView.transform = .identity
+        } completion: { _ in
+            UIView.animate(withDuration: 0.2, delay: 0.8, options: .allowUserInteraction) {
+                self.incorrectView.alpha = 0
+                self.incorrectView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            }
+        }
     }
 }
 

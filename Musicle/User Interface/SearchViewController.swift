@@ -75,14 +75,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let hasMoreGuesses = MUSGame.current.didGuess(song: selectedSong)
         cardAnimator?.setOffset(cardAnimator!.stickyOffsets[0], animated: true)
         delegate?.didGuess(hasMoreGuesses: hasMoreGuesses)
-        
-        if hasMoreGuesses {
-            let alert = UIAlertController(title: "Incorrect", message: "\(selectedSong.title) was not the correct song", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default)
-            alert.addAction(ok)
-            self.present(alert, animated: true)
-        }
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
