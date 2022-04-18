@@ -39,7 +39,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ws-Hw-1qR">
                                         <rect key="frame" x="16" y="15.999999999999993" width="303" height="109.33333333333331"/>
-                                        <string key="text">Welcome to Musicle! It's like Wordle... but with music! The objective of the game is to guess the song played with only a short audio clip. Requesting more time is allowed with point deduction.</string>
+                                        <string key="text">Welcome to Musicle! It's like Wordle... but with music! The objective of the game is to guess the daily song with only a short audio clip. With each wrong guess, the audio clip gets longer.</string>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
